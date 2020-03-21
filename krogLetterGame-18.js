@@ -16,4 +16,12 @@ let guess=()=>{
 };
 
 while(playcount<letters.length){guess()};
-/*Need to add reward $ along with the playcount*/
+/*Need to add in js:
+  reward $ along with the playcount
+  word bank, word selector, word-to-letter split
+  dom-manipulation
+  result styling
+  alterations necessary for scoring and recording words with repeating letters
+*/
+
+
