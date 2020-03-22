@@ -40,3 +40,11 @@ Additional Functionality:
 Note: Creating this game may require some things you aren't familiar with yet. That's okay! Part of being a dev is being able to research and solve problems. So don't be afraid to do some extra research BUT put a time limit on it && don't let it keep you from moving forward! There is always a multitude of ways to solve these problems. 
 
 Happy Coding!
+------------------
+Game Design Notes:
+The GUESSATRONIC robot is on your screen, threatening a randomly displayed imaginary creature. The only way to save the creature is to guess the word and defeat Guessatronic. A correct letter stops the robot from moving, but an incorrect guess moves it closer. If it captures the creature, the game ends.
+Easy Level: all words 4 letters or less, no timer, wrong guesses same as twice letters in word;
+Medium Level: words up to 6 letters, no timer, wrong guesses same as letters in word;
+Hard Level: words 4 to 6 letters, 1 minute timer; wrong guesses 3/4 of word length;
+Extreme Level: words 6-8 letters, 30 second timer; wrong guesses half of word length
+
