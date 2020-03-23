@@ -19,3 +19,19 @@
     width: 100%;
     height: auto;
 }
+#gameInfo h1{
+    text-align: center;
+}
+#levelWrap{
+    display: flex;
+    flex-direction: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+#levelWrap button{
+    margin:.5rem;
+}
+
+#howTo{
+    display: none;
+}
