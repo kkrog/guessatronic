@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link type="text/css" href="./style.css">
+    <link type="text/css" rel="stylesheet" href="./style.css">
     <script src="./krogLetterGame-18.js" defer></script>
     <title>Guessatronic</title>
 </head>
 <body>
-    <div id="gameInfo">
-        <h1>GUESSATRONIC</h1>
-        <div id="level wrap">
+    <div id="gameInfo" class="row">
+        <div class="row">
+            <h1>GUESSATRONIC</h1>
+        </div>
+        <div id="level wrap" class="row">
             <h3>Choose a level:</h3>
             <button id="easy">Easy</button>
             <button id="medium">Medium</button>
@@ -19,23 +21,46 @@
             <button id="extreme">Extreme</button>
         </div>
 <!--keep start hidden until level selected-->
-        <button id="start">PLAY GAME!</button>
-        <div id="howToWrap">
-            <button id="howToButton">How to Play</button>
+        <div id="controlsWrap" class="row">
+            <button id="start">PLAY GAME!</button>
+            <div id="howToWrap">
+                <button id="howToButton">How to Play</button>
 <!--keep howTo hidden, prevent play start if displayed-->
-            <p id="howTo">Keep the GUESSATRONIC robot from capturing the creature by guessing the control password. On Easy and Medium, a correct guess stops the robot but a wrong guess moves it forward. On Hard and Extreme, wrong guesses move the robot forward and you must beat a countdown timer. Good luck!</p>
+                <p id="howTo">Keep the GUESSATRONIC robot from capturing the creature by guessing the control password. On Easy and Medium, a correct guess stops the robot but a wrong guess moves it forward. On Hard and Extreme, wrong guesses move the robot forward and you must beat a countdown timer. Good luck!</p>
+            </div>
         </div>
-    <img id="saveIt" src="#" alt="thing you're trying to save from Guessatronic">"
-    <div id="yourGuess"></div>
-    <div id="guessMachine">
-        <img src="#" alt="the Guessatronic: a robotic machine">
-        <div id="goodGuess" alt="correct guesses displayed on the Guessatronic">
-            <!--put correct guesses here-->
+    </div>
+    <div class="row">
+        <div id="robotWrap" class="col-6" alt="the Guessatronic robot">
+            <img id="robot" src="./images/robot.png" alt="Guessatronic robot">
+            <div class="row">
+                <div id="cage" class="col-4">
+                </div>
+            </div>
+            <div class="row">
+                <div id="goodGuess" class="col-8" alt="correct guesses displayed on the Guessatronic">
+                <!--put correct guesses here-->
+                </div>
+            </div>
+            <div class="row">
+                <div id="yourGuess" class="col-3"></div>
+                <div class="col-2">
+                    <div id="timer"></div>
+                    <button id="guessButton">Guess</button>
+                </div>
+                <div id="badLevel" class="col-1" alt="barometer of remaining guesses">
+                </div>
+                <div id="wrongBox" class="col-3">
+                <!--put wrong guesses here -->
+                </div>
+            </div>
         </div>
-        <div id="badLevel" alt="barometer of remaining guesses">
-            <!--put wrong guesses here -->>
+        <div id="saveWrap" class="col-2">
+            <img id="saveIt" src="#" alt="creature you're saving from Guessatronic">
         </div>
-
+    </div>
+    <div id="grassWrap" class="row">
+        <div id="grass" class="col-12"></div>
     </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

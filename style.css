@@ -1,0 +1,21 @@
+#robot {
+    z-index: 100;
+    max-height: 50vh;
+}
+#cage {
+    z-index: 90;
+}
+#robotWrap .row{
+    z-index: 110;
+}
+#grass{
+    background-color: #24a105;
+    height:15vh;
+}
+#saveWrap{
+   width: 20vw;
+}
+#saveIt{
+    width: 100%;
+    height: auto;
+}

@@ -1,4 +1,14 @@
-let letters=['h','o','u','n','d'];
+let creatures=["./images/creature1.png","./images/creature2.png","./images/creature3.png","./images/creature4.png"];
+let pickCreature=()=>{
+  let picked=creatures[Math.floor(Math.random()*creatures.length)];
+  document.getElementById('saveIt').src=picked;
+};
+pickCreature();
+
+
+
+
+/*let letters=['h','o','u','n','d'];
 let lel=letters.length;
 let guesses=new Array(lel);
 let wrong=[];
@@ -15,7 +25,7 @@ let guess=()=>{
   if(JSON.stringify(letters)===JSON.stringify(guesses)){playcount=letters.length;console.log("You win!")};
 };
 
-while(playcount<letters.length){guess()};
+while(playcount<letters.length){guess()};*/
 /*Need to add in js:
   reward $ along with the playcount
   word bank, word selector, word-to-letter split
