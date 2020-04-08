@@ -27,11 +27,6 @@ body{
     overflow-x: hidden;
     overflow-y: hidden;
 }
-#gameInfo{
-    display:flex;
-    justify-content: center;
-    text-align: center;
-}
 #gametitle{
     font-family: 'Luckiest Guy','Roboto',sans-serif;
     color: rgb(216,21,38);
@@ -42,8 +37,6 @@ body{
     margin: 1rem 0px;
 }
 #levelWrap{
-    justify-content: center;
-    align-items: center;
     flex-wrap: nowrap;
     margin: 0 2rem;
 }
@@ -83,10 +76,6 @@ body{
     color: #24a105;
     border-color: #24a105;
 }
-#howToWrap{
-    flex-direction: column;
-    align-items: center;
-}
 #howTo{
     display: none;
     background-color:rgba(213,255,253,.2);
@@ -95,8 +84,10 @@ body{
     padding: .5rem;
     font-family: 'Nanum Gothic','Roboto',sans-serif;
     font-weight: 400;
+    margin: 0 auto;
 }
-/*be sure to increase #howTo max-width for smaller screens*/#robot {
+/*be sure to increase #howTo max-width for smaller screens*/
+#robot {
     z-index: 100;
     max-height: 50vh;
 }
