@@ -4,12 +4,14 @@ let pickCreature=()=>{
   document.getElementById('saveIt').src=picked;
 };
 pickCreature();
+
 let instructions=document.getElementById('howToButton');
 let c=0;
 instructions.onclick=()=>{
   c++;
   if(c%2 !== 0){
     document.getElementById('howTo').style.display='block';
+//need to add limit preventing playstart if howTo displayed
   } else if(c%2==0){
     document.getElementById('howTo').style.display='none';
   }

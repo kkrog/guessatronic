@@ -9,60 +9,66 @@
     <title>Guessatronic</title>
 </head>
 <body>
-    <div id="gameInfo" class="row">
-        <div class="col-12">
-            <h1>GUESSATRONIC</h1>
+    <div class="container-fluid">
+        <div id="gameInfo" class="row">
+            <div class="col-9 col-md-6 col-xl-4">
+                <h1 id="gametitle">GUESSATRONIC</h1>
+            </div>
         </div>
-        <div id="levelWrap" class="col-12">
-            <h3>Choose a level: </h3>
-            <button id="easy">Easy</button>
-            <button id="medium">Medium</button>
-            <button id="hard">Hard</button>
-            <button id="extreme">Extreme</button>
+        <div id="levelWrap" class="row text-center">
+            <h4 class="col-4 col-lg-2">Choose level:</h4>
+            <button id="easy" class="col-2 col-xl-1">Easy</button>
+            <button id="medium"class="col-2 col-xl-1">Medium</button>
+            <button id="hard"class="col-2 col-xl-1">Hard</button>
+            <button id="extreme"class="col-2 col-xl-1">Extreme</button>
         </div>
-<!--keep start hidden until level selected-->
-        <div id="controlsWrap" class="row">
-            <button id="start">PLAY GAME!</button>
-            <div id="howToWrap">
+    <!--keep start hidden until level selected-->
+        <div class="controls row">
+            <div id="controlWrap" class="col-12 text-center">
+                <button id="start">PLAY GAME!</button>
                 <button id="howToButton">How to Play</button>
-<!--keep howTo hidden, prevent play start if displayed-->
-                <p id="howTo">Keep the GUESSATRONIC robot from capturing the creature by guessing the control password. On Easy and Medium, a correct guess stops the robot but a wrong guess moves it forward. On Hard and Extreme, wrong guesses move the robot forward and you must beat a countdown timer. Good luck!</p>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-1 spacer"></div>
-        <div id="robotWrap" class="col-8" alt="the Guessatronic robot">
-            <img id="robot" src="./images/robot.png" alt="Guessatronic robot">
-            <div class="row">
-                <div id="cage" class="col-4">
-                </div>
-            </div>
-            <div class="row">
-                <div id="goodGuess" class="col-8" alt="correct guesses displayed on the Guessatronic">
-                <!--put correct guesses here-->
-                </div>
-            </div>
-            <div class="row">
-                <div id="yourGuess" class="col-3"></div>
-                <div class="col-2">
-                    <div id="timer"></div>
-                    <button id="guessButton">Guess</button>
-                </div>
-                <div id="badLevel" class="col-1" alt="barometer of remaining guesses">
-                </div>
-                <div id="wrongBox" class="col-3">
-                <!--put wrong guesses here -->
-                </div>
+    <!--keep howTo hidden, prevent play start if displayed-->
+        <div class="row">
+            <div  id="howToWrap" class="col-12 col-md-6 col-lg-4 text-center">        
+                <p id="howTo">Save the creature from GUESSATRONIC by guessing the control password. On Easy and Medium, correct guesses stop the robot but wrong guesses move it forward. On Hard and Extreme, wrong guesses move the robot forward and you must beat a timer. Good luck!</p>
             </div>
         </div>
-        <div class="col-1 spacer"></div>
-        <div id="saveWrap" class="col-2">
-            <img id="saveIt" src="#" alt="creature you're saving from Guessatronic">
+        <div class="row">
+            <div class="col-1 spacer"></div>
+            <div id="robotWrap" class="col-8" alt="the Guessatronic robot">
+                <img id="robot" src="./images/robot.png" alt="Guessatronic robot">
+                <div class="row">
+                    <div id="cage" class="col-4">
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="goodGuess" class="col-8" alt="correct guesses displayed on the Guessatronic">
+                    <!--put correct guesses here-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="yourGuess" class="col-3"></div>
+                    <div class="col-2">
+                        <div id="timer"></div>
+                        <button id="guessButton">Guess</button>
+                    </div>
+                    <div id="badLevel" class="col-1" alt="barometer of remaining guesses">
+                    </div>
+                    <div id="wrongBox" class="col-3">
+                    <!--put wrong guesses here -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-1 spacer"></div>
+            <div id="saveWrap" class="col-2">
+                <img id="saveIt" src="#" alt="creature you're saving from Guessatronic">
+            </div>
         </div>
-    </div>
-    <div id="grassWrap" class="row">
-        <div id="grass" class="col-12"></div>
+        <div id="grassWrap" class="row">
+            <div id="grass" class="col-12"></div>
+        </div>
     </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
