@@ -27,6 +27,7 @@ body{
     overflow-x: hidden;
     overflow-y: hidden;
 }
+
 #gametitle{
     font-family: 'Luckiest Guy','Roboto',sans-serif;
     color: rgb(216,21,38);
@@ -44,6 +45,7 @@ body{
     text-align: right;
     font-family: 'Luckiest Guy','Roboto',sans-serif;
     color: rgb(216,21,38);
+    margin-top: .5rem;
 }
 #levelWrap button{
     margin:.5rem;
@@ -53,7 +55,7 @@ body{
     font-size: 1rem;
     color: rgb(216,21,38);
     border-color: rgb(216,21,38);
-    background-color: rgba(213, 255, 253,.2);
+    background-color: rgba(213, 255, 253,.1);
 }
 #levelWrap button:hover{
     background-color: rgb(249,231,54);
@@ -78,13 +80,18 @@ body{
 }
 #howTo{
     display: none;
-    background-color:rgba(213,255,253,.2);
+    background-color:rgba(213,255,253,.1);
     border: 5px solid #24a105;
     border-radius: 1rem;
     padding: .5rem;
     font-family: 'Nanum Gothic','Roboto',sans-serif;
     font-weight: 400;
     margin: 0 auto;
+}
+#howTo span{
+    font-family: 'Luckiest Guy','Roboto',sans-serif;
+    font-size: 1.25rem;
+    color: #24a105;
 }
 /*be sure to increase #howTo max-width for smaller screens*/
 #robot {
