@@ -60,7 +60,6 @@ body{
 #levelWrap button:hover{
     background-color: rgb(249,231,54);
 }
-/*fix button placement*/
 #controlWrap button{
     margin: 1rem;
     border-radius: .5rem;
@@ -93,16 +92,86 @@ body{
     font-size: 1.25rem;
     color: #24a105;
 }
-/*be sure to increase #howTo max-width for smaller screens*/
-#robot {
-    z-index: 100;
-    max-height: 50vh;
+/*game layer*/
+#wrongWrap{
+    background-image:url('./images/smoke1.svg');
+    background-size:contain;
+    background-repeat: no-repeat;
 }
-#cage {
-    z-index: 90;
+/*start robot*/
+#robotWrap{
+    height:70vh;
+    width:70vh;
 }
-#robotWrap .row{
-    z-index: 110;
+#topLayer{
+    z-index: 3000;
+    position: absolute;
+    /*background-color: rgba(0,0,0,0);*/
+}
+#goodGuess{
+    font-size:2rem;
+    width:75%;
+    top:45%;
+    left:10%;
+    position:absolute;
+    border-bottom: 2px solid black;
+}
+#guessBox{
+    height:40%;
+    width: 30%;
+    position: absolute;
+    border: 1px solid black;
+    bottom:0;
+    left:10%;
+}
+#guessBox input{
+    max-width:92%;
+    height:88%;
+    bottom:0;
+    position: absolute;
+    background-color:rgba(0,0,0,0);
+    font-size:3rem;
+}
+#guessButton{
+    height:20%;
+    position:absolute;
+    left:50%;
+    bottom:0;
+}
+#barometer{
+    height:80%;
+    width:1rem;
+    border: 2px solid rgb(216,21,38);
+    border-radius: .5rem;
+    background-image: url('./images/redsquare.png');
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position: 0% 100%;
+    position:absolute;
+    bottom:10%;
+}
+#midLayer{
+    background-image: url('./images/robot.png');
+    z-index:2000;
+    height:100%;
+    width:100%;
+    background-size:contain;
+    background-repeat:no-repeat;
+    position: relative;
+}
+#bottomLayer{
+    z-index: 1000;
+    height:50vh;
+    width:50vh;
+    position: absolute;
+    top: 27%;
+    left:15%;
+}
+#cage{
+    height:15%;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-image:url('./images/creature1.png')
 }
 #grass{
     background-color: #24a105;
@@ -117,3 +186,4 @@ body{
 }
 
 /*xs size change flex-wrap on #levelWrap*/
+/*be sure to increase #howTo max-width for smaller screens*/

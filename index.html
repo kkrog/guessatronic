@@ -14,12 +14,12 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div id="gameInfo" class="row  d-flex justify-content-center text-center">
+        <div id="gameInfo" class="row d-flex justify-content-center text-center">
             <div class="col-9 col-md-6 col-xl-4">
                 <h1 id="gametitle">GUESSATRONIC</h1>
             </div>
         </div>
-        <div id="levelWrap" class="row  d-flex justify-content-center">
+        <div id="levelWrap" class="row d-flex justify-content-center">
             <h4 class="col-4 col-lg-2">Choose level:</h4>
             <button id="easy" class="col-2 col-xl-1">Easy</button>
             <button id="medium"class="col-2 col-xl-1">Medium</button>
@@ -39,37 +39,32 @@
                 <p id="howTo">Save the creature from GUESSATRONIC by guessing the control password. On Easy and Medium, correct guesses stop the robot but wrong guesses move it forward. On Hard and Extreme, wrong guesses move the robot forward and you must beat a timer.<br><span>Good luck!</span></p>
             </div>
         </div>
-        <div class="row">
+        <!--game section-->
+        <section id="gameWrap" class="row">
             <div class="col-1 spacer"></div>
-            <div id="robotWrap" class="col-8" alt="the Guessatronic robot">
-                <img id="robot" src="./images/robot.png" alt="Guessatronic robot">
-                <div class="row">
-                    <div id="cage" class="col-4">
+            <div id="wrongWrap" class="col-1 col-md-2 d-flex flex-wrap flex-row"></div>
+            <div id="robotWrap" class="col-3  col-md-4" alt="the Guessatronic robot">
+                <div id="topLayer" class="d-flex flex-nowrap flex-row justify-content-end">
+                    <div id="goodGuess" class="col-8 text center" alt="correct guesses displayed on the Guessatronic"><p></p></div>
+                    <div id="guessBox" class="text-center">
+                        <input type="text" alt="Your guess" class="text-center"/>
                     </div>
+                    <button id="guessButton">Guess</button>
+                    <div id="barometer" class="align-self-end" alt="remaining guesses"></div>
                 </div>
-                <div class="row">
-                    <div id="goodGuess" class="col-8" alt="correct guesses displayed on the Guessatronic">
-                    <!--put correct guesses here-->
-                    </div>
+                <div id="midLayer"></div>
+                <div id="bottomLayer">
+                    <div id="cage"></div>
                 </div>
-                <div class="row">
-                    <div id="yourGuess" class="col-3"></div>
-                    <div class="col-2">
-                        <div id="timer"></div>
-                        <button id="guessButton">Guess</button>
-                    </div>
-                    <div id="badLevel" class="col-1" alt="barometer of remaining guesses">
-                    </div>
-                    <div id="wrongBox" class="col-3">
-                    <!--put wrong guesses here -->
-                    </div>
-                </div>
+            </div>                    
+            <div class="col-2">
+                <div id="timer"></div>
             </div>
             <div class="col-1 spacer"></div>
             <div id="saveWrap" class="col-2">
                 <img id="saveIt" src="#" alt="creature you're saving from Guessatronic">
             </div>
-        </div>
+        </section>
         <div id="grassWrap" class="row">
             <div id="grass" class="col-12"></div>
         </div>
