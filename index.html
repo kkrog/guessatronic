@@ -43,25 +43,36 @@
         <section id="gameWrap" class="row">
             <div class="col-1 spacer"></div>
             <div id="wrongWrap" class="col-1 col-md-2 d-flex flex-wrap flex-row"></div>
-            <div id="robotWrap" class="col-3  col-md-4" alt="the Guessatronic robot">
-                <div id="topLayer" class="d-flex flex-nowrap flex-row justify-content-end">
-                    <div id="goodGuess" class="col-8 text center" alt="correct guesses displayed on the Guessatronic"><p></p></div>
-                    <div id="guessBox" class="text-center">
-                        <input type="text" alt="Your guess" class="text-center"/>
+            <div id="robotWrap" class="col-3  col-md-4=" alt="the Guessatronic robot">
+                <div id="roboTopSpacer" class="row"></div>
+                <div id="cageWrap" class="row">
+                    <div class="col-1 spacer"></div>
+                    <div id="cage" class="col-3 text-left"></div>
+                    <div class="col-8 spacer"></div>
+                </div>
+                <div id="roboInfoWrap" class="row">
+                    <div class="col-1 spacer"></div>
+                    <div id="guessWrap" class="col-2">
+                        <input id="guessBox" alt="Guess a letter here"/>
+                        <button id="guessButton" class="text-center">GUESS</button>
                     </div>
-                    <button id="guessButton">Guess</button>
-                    <div id="barometer" class="align-self-end" alt="remaining guesses"></div>
+                    <div class="col-1 spacer"></div>
+                    <div id="timerWrap" class="col-2">
+                        <h4>TIMER</h4>
+                        <h3 id="timer" alt="seconds left in game"></h3>
+                    </div>
+                    <div class="col-1 spacer"></div>
+                    <div id="barometer" class="col-1"></div>
+                    <div class="col-4 spacer"></div>
                 </div>
-                <div id="midLayer"></div>
-                <div id="bottomLayer">
-                    <div id="cage"></div>
+                <div id="goodWrap" class="row">
+                    <div class="col-1 spacer"></div>
+                    <div id="goodGuesses" class="col-8"></div>
+                    <div class="col-3 spacer"></div>
                 </div>
-            </div>                    
-            <div class="col-2">
-                <div id="timer"></div>
             </div>
-            <div class="col-1 spacer"></div>
-            <div id="saveWrap" class="col-2">
+            <div class="col-5 col-md-3 col-lg-4 spacer"></div>
+            <div id="saveWrap" class="col-2 col-lg-1">
                 <img id="saveIt" src="#" alt="creature you're saving from Guessatronic">
             </div>
         </section>
