@@ -1,0 +1,74 @@
+/*game layer*/
+#gameWrap{
+    width:100vw;
+}
+#wrongWrap{
+
+}
+/*start robot*/
+#robotWrap{
+    display:grid;
+    
+}
+#ROBOT{
+
+}
+#ROBOTonTOP{
+
+}
+#roboTopSpacer{
+}
+#cageWrap{
+}
+#roboInfoWrap{
+}
+#guessBox{
+    border: 2px solid red;
+}
+#guessButton{
+    border-radius: .5rem;
+    font-family: 'Luckiest Guy','Roboto',sans-serif;
+    background-color: rgb(249,231,54);
+}
+#timerWrap{
+    font-family: 'Nanum Gothic','Roboto',sans-serif;
+}
+#timerWrap h4{
+}
+#timer{
+    border-radius: 50%;
+    border: 2px solid red;
+}
+#barometer{
+    border: .125rem solid rgb(216,21,38);
+    border-radius: 2rem;
+    background-image: url('./images/redsquare.png');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: 0% 100%;
+}
+.riw{
+    padding-right: 0;
+    padding-left: 0;
+}
+#goodWrap{
+}
+#goodGuesses{
+    font-family: 'Nanum Gothic','Roboto',sans-serif;
+    border-bottom: 3px solid red;
+}
+#grass{
+    background-color: #24a105;
+    height:15vh;
+    position:sticky;
+    width:100vw;
+    bottom:0;
+}
+#saveWrap{
+}
+#saveIt{
+}
+.spacer{
+    padding:0;
+    margin: 0;
+}

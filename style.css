@@ -93,6 +93,7 @@ body{
     color: #24a105;
 }
 /*game layer*/
+/*robotest segment start*/
 #gameWrap{
     position: absolute;
     bottom: 10vh;
@@ -208,5 +209,6 @@ body{
     padding:0;
     margin: 0;
 }
+/*test segment end*/
 /*xs size change flex-wrap on #levelWrap*/
 /*be sure to increase #howTo max-width for smaller screens*/

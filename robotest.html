@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link type="text/css" rel="stylesheet" href="./robotest.css">
+    <title>Robot Test</title>
+</head>
+<body>
+    <section class="container-fluid">
+        <section id="gameWrap" class="row">
+            <div id="wrongWrap" class="col-1 col-md-2">
+                <img src="./images/smoke1.svg" id="smoke">
+                <h4 id="wrong">A</h4>
+            </div>
+            <div id="robotWrap" class="col-3 col-md-4" alt="the Guessatronic robot">
+                <img src="images/robot.png" id="ROBOT" class="img-fluid">
+                <div id="cage"></div>
+                <div id="guessWrap">
+                    <input id="guessBox" alt="Guess a letter here" class="text-center"/>
+                    <button id="guessButton" class="text-center">GUESS</button>
+                </div>
+                <div id="timerWrap">
+                    <h4 class="text-center">TIMER</h4>
+                    <h3 id="timer" class="text-center" alt="seconds left in game">43</h3>
+                </div>
+                <div id="barometer"></div>
+                <div id="goodGuesses">LETTERS</div>
+            </div>
+            <div id="saveWrap" class="col-2 col-lg-1 col-offset-5 col-offset-md-3 col-offset-lg-4">
+                <img id="saveIt" src="#" alt="creature you're saving from Guessatronic">
+            </div>
+        </section>
+        <div id="grassWrap" class="row">
+            <div id="grass" class="col-12"></div>
+        </div>
+    </section>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>    
+</body>
+</html>
