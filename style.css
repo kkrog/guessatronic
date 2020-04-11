@@ -95,13 +95,16 @@ body{
 /*game layer*/
 #gameWrap{
     position: absolute;
-    bottom: 12vh;
+    bottom: 10vh;
     width: 100vw;
+    height: 30vh;
 }
 #wrongWrap{
     background-image:url('./images/smoke1.svg');
     background-size:contain;
     background-repeat: no-repeat;
+    height: 100%;
+    width: 100%;
 }
 /*start robot*/
 #robotWrap{
@@ -119,19 +122,19 @@ body{
 }
 #ROBOTonTOP{
     position: absolute;
-    bottom:.5rem;
+    bottom:1.5rem;
     left:0;
     z-index:3000;
     padding: 0;
 }
 #roboTopSpacer{
-    height:24%;
+    height:22%;
 }
 #cageWrap{
-    height:24%;
+    height:22%;
 }
 #roboInfoWrap{
-    height:30%;
+    height:38%;
 }
 #guessBox{
     width:100%;
@@ -168,9 +171,15 @@ body{
     background-size: 100%;
     background-position: 0% 100%;
 }
+.riw{
+    padding-right: 0;
+    padding-left: 0;
+}
 #goodWrap{
     z-index:3001;
     height:1.8rem;
+    padding-left: .5rem;
+    padding-right: 0;
 }
 #goodGuesses{
     font-family: 'Nanum Gothic','Roboto',sans-serif;
@@ -191,10 +200,13 @@ body{
     width: 100%;
     height: auto;
     position: absolute;
-    bottom: 1.25vh;
+    bottom: 3.25vh;
     z-index: 4000;
-    right: 1rem;
+    right: 2rem;
 }
-
+.spacer{
+    padding:0;
+    margin: 0;
+}
 /*xs size change flex-wrap on #levelWrap*/
 /*be sure to increase #howTo max-width for smaller screens*/

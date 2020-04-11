@@ -11,9 +11,10 @@ instructions.onclick=()=>{
   c++;
   if(c%2 !== 0){
     document.getElementById('howTo').style.display='block';
-//need to add limit preventing playstart if howTo displayed
+    document.getElementById('start').style.display='none';
   } else if(c%2==0){
     document.getElementById('howTo').style.display='none';
+    document.getElementById('start').style.display='inline-block';
   }
 };
 
