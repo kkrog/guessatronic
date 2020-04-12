@@ -130,4 +130,12 @@
 
 THOUGHT -maybe write a javascript function that determine's robotWrap height as variable based on VW and VH proportions... height 35% at 1081-ss 1100px to 1136 W, 38% up to 1225, 1265-1315 41%,44% 1335-something
 
+
+LAST THOUGHT - This grid method does not seem to be any more beneficial than using the built in-bootstrap grid super nested.
+UGH!!!!!!!!
+
+IN WHICH CASE:
+---------------Maybe we just make 3 or 4 versions of game layout with robot HARD PIXEL CODED IN PLACE, so it's not as reponsive, but it's not shitting everywhere.
+I don't wanna, but I think we need to. Time to finish this and PUT IT TO BED. (me first though. 'night)
+
 */
