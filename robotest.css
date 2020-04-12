@@ -1,74 +1,128 @@
 /*game layer*/
 #gameWrap{
     width:100vw;
+    height:100%;
+    bottom:15vh;
+    position:fixed;
 }
 #wrongWrap{
-
+    width:100%;
+}
+#smoke{
+    max-width:100%;
+    height: auto;
+    position: absolute;
+    z-index: 10;
+    padding: inherit;
+}
+#wrongWrap h4{
+    line-height: 500%;
+    /*275% ok for med-large, 400%+ xl - 500% biggest my laptop*/
+    z-index:20;
 }
 /*start robot*/
+#OUTER{
+    height: 100%;
+    width:100%;
+}
 #robotWrap{
+    width:100%;
+    /*height source of like 98% probs*/
+    height:35%;
+    padding:0;
     display:grid;
-    
+    grid-template-rows: 24% 24% 37% 15%;
+    grid-template-columns: repeat(12, 1fr);
+    align-items: start;
+    justify-items: center;
+    justify-content: stretch;
+    align-content: start;
+    gap:2px;
+    grid-template-areas: '. . . . . . . . . . . .''. cage cage cage . . . . . . . .''. guessWrap guessWrap . timerWrap timerWrap . barometer . . . .''. guess guess guess guess guess guess guess guess . . .';
+    background-image: url('./images/robot.png');
+    background-position: bottom;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
-#ROBOT{
-
+/*#ROBOT{
+    position: absolute;
+    bottom:0;
+    z-index: 4
+}*/
+#cage{
+    grid-area: cage;
 }
-#ROBOTonTOP{
-
-}
-#roboTopSpacer{
-}
-#cageWrap{
-}
-#roboInfoWrap{
+#guessWrap{
+    grid-area:guessWrap;
+    max-width: 100%;
 }
 #guessBox{
-    border: 2px solid red;
+    width: 100%;
+    border: 2px solid rgb(216,21,38);
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: 'Nanum Gothic','Roboto',sans-serif;
 }
 #guessButton{
+    margin-top: 5px;
     border-radius: .5rem;
     font-family: 'Luckiest Guy','Roboto',sans-serif;
     background-color: rgb(249,231,54);
+    max-width: 100%;
+    font-size: .75rem;
+    font-weight: 700;
+    padding: .25rem;
+}
+#guessButton:hover{
+    background-color:rgb(216,21,38);
 }
 #timerWrap{
+    grid-area: timerWrap;
     font-family: 'Nanum Gothic','Roboto',sans-serif;
+    max-width: 100%;
 }
 #timerWrap h4{
+    color:rgb(216,21,38);
+    font-weight: 700;
+    font-family: 'Nanum Gothic','Roboto',sans-serif;
+    font-size: 1.25rem;
 }
 #timer{
+    width:100%;
     border-radius: 50%;
     border: 2px solid red;
+    line-height: 1.75;
 }
 #barometer{
+    grid-area:barometer;
     border: .125rem solid rgb(216,21,38);
     border-radius: 2rem;
     background-image: url('./images/redsquare.png');
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: 0% 100%;
-}
-.riw{
-    padding-right: 0;
-    padding-left: 0;
-}
-#goodWrap{
+    max-width: 100%;
+    min-width: 75%;
+    height: 90%;
 }
 #goodGuesses{
+    grid-area:guess;
     font-family: 'Nanum Gothic','Roboto',sans-serif;
+    text-decoration-line: underline;
     border-bottom: 3px solid red;
 }
 #grass{
     background-color: #24a105;
     height:15vh;
-    position:sticky;
+    position:fixed;
     width:100vw;
     bottom:0;
 }
 #saveWrap{
+    width:100%;
+    height:100%;
 }
 #saveIt{
-}
-.spacer{
-    padding:0;
-    margin: 0;
+    width:100%;
+    height:auto;
 }

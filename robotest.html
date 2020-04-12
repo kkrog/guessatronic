@@ -10,26 +10,28 @@
 <body>
     <section class="container-fluid">
         <section id="gameWrap" class="row">
-            <div id="wrongWrap" class="col-1 col-md-2">
-                <img src="./images/smoke1.svg" id="smoke">
+            <div id="wrongWrap" class="col-1 col-md-2 offset-1 d-flex justify-content-center align-items-end">
+                <img src="./images/smoke1.png" id="smoke">
                 <h4 id="wrong">A</h4>
             </div>
-            <div id="robotWrap" class="col-3 col-md-4" alt="the Guessatronic robot">
-                <img src="images/robot.png" id="ROBOT" class="img-fluid">
-                <div id="cage"></div>
-                <div id="guessWrap">
-                    <input id="guessBox" alt="Guess a letter here" class="text-center"/>
-                    <button id="guessButton" class="text-center">GUESS</button>
+            <section id="OUTER" class="col-3 col-md-4 d-flex justify-content-end align-items-end flex-column">
+                <div id="robotWrap" alt="the Guessatronic robot">
+                    <!--img src="images/robot.png" id="ROBOT" class="img-fluid"-->
+                    <div id="cage"></div>
+                    <div id="guessWrap" class="d-flex flex-column justify-content-start align-items-center">
+                        <input id="guessBox" alt="Guess a letter here" class="text-center"/>
+                        <button id="guessButton" class="text-center">GUESS</button>
+                    </div>
+                    <div id="timerWrap" class="d-flex flex-column justify-content-start align-items-center">
+                        <h4 class="text-center">TIMER</h4>
+                        <h3 id="timer" class="text-center" alt="seconds left in game">43</h3>
+                    </div>
+                    <div id="barometer"></div>
+                    <div id="goodGuesses" class="text-center">L E T T E R S</div>
                 </div>
-                <div id="timerWrap">
-                    <h4 class="text-center">TIMER</h4>
-                    <h3 id="timer" class="text-center" alt="seconds left in game">43</h3>
-                </div>
-                <div id="barometer"></div>
-                <div id="goodGuesses">LETTERS</div>
-            </div>
-            <div id="saveWrap" class="col-2 col-lg-1 col-offset-5 col-offset-md-3 col-offset-lg-4">
-                <img id="saveIt" src="#" alt="creature you're saving from Guessatronic">
+            </section>
+            <div id="saveWrap" class="col-2 col-lg-1 offset-5 offset-md-3 offset-lg-4 d-flex flex-column justify-content-end">
+                <img id="saveIt" src="./images/creature1.png" alt="creature you're saving from Guessatronic">
             </div>
         </section>
         <div id="grassWrap" class="row">
