@@ -126,4 +126,8 @@
     width:100%;
     height:auto;
 }
-/*so these settings legit only work for ONE size display that I was using b/c chrome devtools...15px either direction and it BREAKS*/
+/*so these settings legit only work for ONE size display that I was using b/c chrome devtools...15px either direction and it BREAKS...ok, so it's more like 50 - 1100x758 is the current sweetspot. ss drops to 990w if we put padding:0 on OUTER
+
+THOUGHT -maybe write a javascript function that determine's robotWrap height as variable based on VW and VH proportions... height 35% at 1081-ss 1100px to 1136 W, 38% up to 1225, 1265-1315 41%,44% 1335-something
+
+*/
