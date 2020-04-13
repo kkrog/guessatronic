@@ -2,7 +2,7 @@
 #gameWrap{
     width:100vw;
     height:100%;
-    bottom:15vh;
+    bottom:12vh;
     position:fixed;
 }
 #wrongWrap{
@@ -12,13 +12,13 @@
     max-width:100%;
     height: auto;
     position: absolute;
-    z-index: 10;
     padding: inherit;
+    z-index:1000;
 }
 #wrongWrap h4{
     line-height: 500%;
     /*275% ok for med-large, 400%+ xl - 500% biggest my laptop*/
-    z-index:20;
+    z-index:1010;
 }
 /*start robot*/
 #OUTER{
@@ -43,6 +43,7 @@
     background-position: bottom;
     background-size: contain;
     background-repeat: no-repeat;
+    z-index: 2000;
 }
 /*#ROBOT{
     position: absolute;
@@ -55,6 +56,7 @@
 #guessWrap{
     grid-area:guessWrap;
     max-width: 100%;
+    z-index: 2010;
 }
 #guessBox{
     width: 100%;
@@ -80,6 +82,7 @@
     grid-area: timerWrap;
     font-family: 'Nanum Gothic','Roboto',sans-serif;
     max-width: 100%;
+    z-index: 2020;
 }
 #timerWrap h4{
     color:rgb(216,21,38);
@@ -104,28 +107,87 @@
     max-width: 100%;
     min-width: 75%;
     height: 90%;
+    z-index: 2030;
 }
 #goodGuesses{
     grid-area:guess;
     font-family: 'Nanum Gothic','Roboto',sans-serif;
     text-decoration-line: underline;
     border-bottom: 3px solid red;
+    z-index: 2040;
+}
+#grassWrap{
+    width:100vw;
+    bottom:0;
+    position:fixed;
+    margin: 0;
+    z-index: 0;
 }
 #grass{
     background-color: #24a105;
     height:15vh;
-    position:fixed;
-    width:100vw;
-    bottom:0;
+    width:100%;
 }
 #saveWrap{
     width:100%;
     height:100%;
+    z-index:3000;
 }
 #saveIt{
+    max-width:135px;
+    min-width:100px;
     width:100%;
     height:auto;
 }
+#noPlay{
+    display:none;
+}
+/*Extra Small devices, portrait phones etc*/
+@media only screen and (max-width:575.98px){
+/*OH NO! Your screen is TOO SMALL for Guessatronic!*/
+    #noPlay{
+        display:block;
+        color: rgb(216,21,38);
+        font-family: 'Luckiest Guy','Roboto',sans-serif;
+    }
+    #gameWrap{
+        display:none;
+    }
+}
+/*Small devices, landscape phones etc*/
+@media only screen and (min-width:576px) and (max-width: 767.98px){
+    #saveIt{
+        max-width:100px;
+        min-width:50px;
+    }
+    #grass{
+        height:8vh;
+    }
+    #gameWrap{
+        bottom:6vh;
+    }
+}
+/*Medium devices, big phone landscape, tablets etc*/
+@media only screen and (min-width:768px) and (max-width:991.98px){
+    #grass{
+        height:10vh;
+    }
+    #gameWrap{
+        bottom:8vh;
+    }
+}
+/*Large devices - laptops etc*/
+@media only screen and (min-width:992px) and (max-width:1199.98px){
+
+}
+/*XL devices - bigger laptops/desktops*/
+@media only screen and (min-width:1200px){
+    #saveIt{
+        max-width:150px;
+        min-width:135px;
+    }
+}
+
 /*so these settings legit only work for ONE size display that I was using b/c chrome devtools...15px either direction and it BREAKS...ok, so it's more like 50 - 1100x758 is the current sweetspot. ss drops to 990w if we put padding:0 on OUTER
 
 THOUGHT -maybe write a javascript function that determine's robotWrap height as variable based on VW and VH proportions... height 35% at 1081-ss 1100px to 1136 W, 38% up to 1225, 1265-1315 41%,44% 1335-something
