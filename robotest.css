@@ -7,16 +7,17 @@
 }
 #wrongWrap{
     width:100%;
+    padding-bottom: 2rem;
 }
 #smoke{
-    max-width:100%;
+    max-width:150px;
     height: auto;
     position: absolute;
     padding: inherit;
     z-index:1000;
 }
 #wrongWrap h4{
-    line-height: 500%;
+    line-height: 520%;
     /*275% ok for med-large, 400%+ xl - 500% biggest my laptop*/
     z-index:1010;
 }
@@ -24,14 +25,14 @@
 #OUTER{
     height: 100%;
     width:100%;
+    padding: 0;
 }
 #robotWrap{
-    width:100%;
-    /*height source of like 98% probs*/
-    height:35%;
+    width:475px;
+    height:373px;
     padding:0;
     display:grid;
-    grid-template-rows: 24% 24% 37% 15%;
+    grid-template-rows: 23% 24% 36% 17%;
     grid-template-columns: repeat(12, 1fr);
     align-items: start;
     justify-items: center;
@@ -39,46 +40,51 @@
     align-content: start;
     gap:2px;
     grid-template-areas: '. . . . . . . . . . . .''. cage cage cage . . . . . . . .''. guessWrap guessWrap . timerWrap timerWrap . barometer . . . .''. guess guess guess guess guess guess guess guess . . .';
-    background-image: url('./images/robot.png');
-    background-position: bottom;
-    background-size: contain;
-    background-repeat: no-repeat;
     z-index: 2000;
 }
-/*#ROBOT{
+#ROBOT{
     position: absolute;
     bottom:0;
-    z-index: 4
-}*/
+    z-index: 2005;
+    width: 475px;
+    height:auto;
+}
 #cage{
     grid-area: cage;
+    z-index: 2001;
+    height:100%;
+    width:85%;
+    margin-left:-15%;
 }
 #guessWrap{
     grid-area:guessWrap;
     max-width: 100%;
     z-index: 2010;
+    margin-top:.25rem;
 }
 #guessBox{
     width: 100%;
     border: 2px solid rgb(216,21,38);
-    font-size: 2rem;
+    font-size: 2.85rem;
+    text-transform: uppercase;
     font-weight: 700;
     font-family: 'Nanum Gothic','Roboto',sans-serif;
+    background-color: #eee;
 }
 #guessButton{
-    margin-top: 5px;
+    margin-top: .75rem;
     border-radius: .5rem;
     font-family: 'Luckiest Guy','Roboto',sans-serif;
     background-color: rgb(249,231,54);
     max-width: 100%;
-    font-size: .75rem;
+    font-size: 1.1rem;
     font-weight: 700;
-    padding: .25rem;
 }
 #guessButton:hover{
-    background-color:rgb(216,21,38);
+    color:rgb(216,21,38);
 }
 #timerWrap{
+    margin-top:.25rem;
     grid-area: timerWrap;
     font-family: 'Nanum Gothic','Roboto',sans-serif;
     max-width: 100%;
@@ -87,14 +93,16 @@
 #timerWrap h4{
     color:rgb(216,21,38);
     font-weight: 700;
-    font-family: 'Nanum Gothic','Roboto',sans-serif;
     font-size: 1.25rem;
 }
 #timer{
     width:100%;
+    font-size: 2rem;
+    height: 3.75rem;
     border-radius: 50%;
-    border: 2px solid red;
+    border: 2px solid rgb(216,21,38);
     line-height: 1.75;
+    background-color: #eee;
 }
 #barometer{
     grid-area:barometer;
@@ -108,13 +116,24 @@
     min-width: 75%;
     height: 90%;
     z-index: 2030;
+    margin-top: .125rem;
 }
 #goodGuesses{
-    grid-area:guess;
+    grid-area: guess;
     font-family: 'Nanum Gothic','Roboto',sans-serif;
-    text-decoration-line: underline;
-    border-bottom: 3px solid red;
     z-index: 2040;
+    text-transform: uppercase;
+    font-size: 3rem;
+    margin-top: -.75rem;
+    width: 120%;
+    margin-left: -.8rem;
+}
+.ul{
+    text-decoration-line: underline;
+    text-decoration-color: rgb(249,231,54);
+}
+.nul{
+    color:rgba(0,0,0,0);
 }
 #grassWrap{
     width:100vw;
@@ -156,19 +175,90 @@
 }
 /*Small devices, landscape phones etc*/
 @media only screen and (min-width:576px) and (max-width: 767.98px){
+    #gameWrap{
+        bottom:6vh;
+    }
+    #wrongWrap{
+        margin-left: 1.5rem;
+    }
+    #smoke{
+        max-width:100px;
+    }
+    #wrongWrap h4{
+        line-height: 400%;
+    }
+    #ROBOT{
+        width:375px;
+    }
+    #robotWrap{
+        width: 375px;
+        height: 294.5px;
+    }
+    #guessBox{
+        font-size:2.2rem;
+    }
+    #guessButton{
+        margin-top:0.25rem;
+        border-radius: 0.35rem;
+        font-size:0.8rem;
+    }
+    #timerWrap{
+        margin-top:0;
+        margin-bottom:0;
+    }
+    #barometer{
+        margin-top:0;
+        height:85%;
+    }
+    #goodGuesses{
+        font-size:2.25rem;
+    }
     #saveIt{
         max-width:100px;
         min-width:50px;
+        margin-left: 2rem;
     }
     #grass{
         height:8vh;
     }
-    #gameWrap{
-        bottom:6vh;
-    }
 }
 /*Medium devices, big phone landscape, tablets etc*/
 @media only screen and (min-width:768px) and (max-width:991.98px){
+    #smoke{
+        max-width:120px;
+    }
+    #wrongWrap h4{
+        line-height: 460%;
+    }
+    #ROBOT{
+        width:375px;
+    }
+    #robotWrap{
+        width: 375px;
+        height: 294.5px;
+    }
+    #guessBox{
+        font-size:2.2rem;
+    }
+    #guessButton{
+        margin-top:0.25rem;
+        border-radius: 0.35rem;
+        font-size:0.8rem;
+    }
+    #timerWrap{
+        margin-top:0;
+        margin-bottom:0;
+    }
+    #barometer{
+        margin-top:0;
+        height:85%;
+    }
+    #goodGuesses{
+        font-size:2.25rem;
+    }
+    #saveIt{
+        margin-left: 1rem;
+    }
     #grass{
         height:10vh;
     }
