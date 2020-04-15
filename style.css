@@ -110,8 +110,6 @@ body{
     color: #24a105;
 }
 /*game layer*/
-/*robotest segment start*/
-/*game layer*/
 #gameWrap{
     width:100vw;
     height:100%;
@@ -258,6 +256,11 @@ body{
     background-color: #24a105;
     height:15vh;
     width:100%;
+}
+#grass p{
+    font-family: 'Nanum Gothic','Roboto',sans-serif;
+    font-size:.75rem;
+    color:#1d8005;
 }
 #saveWrap{
     width:100%;
@@ -426,13 +429,3 @@ Large devices, tiny vh*/
         min-width:135px;
     }
 }
-/*test segment end*/
-/*FOR MEDIA QUERIES - ONCE GAMEPLAY SCRIPT ESTABLISHED:
-use JS to create new media queries with decreased min-heights removing game controls layers
-Small: @media only screen and (min-width:576px) and (max-width: 767.98px) and (min-height:382px) and (max-height:512px){}
-Medium: @media only screen and (min-width:768px) and (max-width:991.98px) and (min-height:455px) and (max-height:585px){}
-Large: @media only screen and (min-width:992px) and (max-width:1199.98px) and (min-height:578px) and (max-height:728.98px){}
-XL:@media only screen and (min-width:1200px) and (max-height:735px) and (min-height:578px){}
-
-
-(min-width:992px) and (min-height:585px) and (max-height:728.98px){
