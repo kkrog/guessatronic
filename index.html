@@ -19,7 +19,7 @@
                 <h1 id="gametitle">GUESSATRONIC</h1>
             </div>
         </div>
-        <div id="levelWrap" class="row d-flex justify-content-center">
+        <div id="levelWrap" class="row d-flex flex-nowrap align-items-center justify-content-center">
             <h4 class="col-4 col-lg-2">Choose level:</h4>
             <button id="easy" class="col-2 col-xl-1">Easy</button>
             <button id="medium"class="col-2 col-xl-1">Medium</button>
@@ -40,50 +40,46 @@
             </div>
         </div>
         <!--game section-->
-        <!--testing in robotest-->
         <section id="gameWrap" class="row">
-            <div class="col-1 spacer"></div>
-            <div id="wrongWrap" class="col-1 col-md-2 d-flex flex-wrap flex-row"></div>
-            <div id="robotWrap" class="col-3  col-md-4" alt="the Guessatronic robot">
-                <img src="images/robot.png" id="ROBOT" class="img-fluid">
-                <div id="ROBOTonTOP" class="container-fluid">
-                    <div id="roboTopSpacer" class="row"></div>
-                    <div id="cageWrap" class="row">
-                        <div class="col-1 spacer"></div>
-                        <div id="cage" class="col-3 text-left"></div>
-                        <div class="col-8 spacer"></div>
+            <div id="wrongWrap" class="col-1 col-md-2 d-flex justify-content-center align-items-end">
+                <img src="./images/smoke1.png" id="smoke">
+                <h4 id="wrong">A</h4>
+            </div>
+            <section id="OUTER" class="col-3 col-md-4 d-flex justify-content-end align-items-start flex-column">
+                <div id="robotWrap" alt="the Guessatronic robot" >
+                    <img src="images/robot.png" id="ROBOT">
+                    <div id="cage"></div>
+                    <div id="guessWrap" class="d-flex flex-column justify-content-start align-items-center">
+                        <input id="guessBox" alt="Guess a letter here" class="text-center" autofocus>
+                        <button id="guessButton" class="text-center">GUESS</button>
                     </div>
-                    <div id="roboInfoWrap" class="row">
-                        <div class="col-1 spacer"></div>
-                        <div id="guessWrap" class="col-2">
-                            <input id="guessBox" alt="Guess a letter here"/>
-                            <button id="guessButton" class="text-center">GUESS</button>
-                        </div>
-                        <div class="col-1 spacer"></div>
-                        <div id="timerWrap" class="col-2 text-center riw">
-                            <h4>TIMER</h4>
-                            <h3 id="timer" alt="seconds left in game"></h3>
-                        </div>
-                        <div class="col-1 spacer"></div>
-                        <div id="barometer" class="col-1 riw"></div>
-                        <div class="col-4 spacer"></div>
+                    <div id="timerWrap" class="d-flex flex-column justify-content-start align-items-center">
+                        <h4 class="text-center">TIMER</h4>
+                        <h3 id="timer" class="text-center" alt="seconds left in game">43</h3>
                     </div>
-                    <div id="goodWrap" class="row">
-                        <div class="col-1 spacer"></div>
-                        <div id="goodGuesses" class="col-8 riw">LETTERS</div>
-                        <div class="col-3 spacer"></div>
+                    <div id="barometer"></div>
+                    <div id="goodGuesses" class="text-center">
+                        <span class="ul">s</span>
+                        <span class="ul">p</span>
+                        <span class="ul">L</span> 
+                        <span class="ul nul">_</span> 
+                        <span class="ul">N</span> 
+                        <span class="ul">t</span> 
+                        <span class="ul">e</span> 
+                        <span class="ul">r</span>
                     </div>
                 </div>
+            </section>
+            <div id="saveWrap" class="col-2 col-xl-1 offset-5 offset-md-4 d-flex flex-column justify-content-end align-items-center">
+                <img id="saveIt" src="./images/creature1.png" alt="creature you're saving from Guessatronic">
             </div>
-            <div class="col-5 col-md-3 col-lg-4 spacer"></div>
-            <div id="saveWrap" class="col-2 col-lg-1">
-                <img id="saveIt" src="#" alt="creature you're saving from Guessatronic">
+            <div id="grassWrap" class="row">
+                <div id="grass" class="col-12"></div>
             </div>
         </section>
-        <div id="grassWrap" class="row">
-            <div id="grass" class="col-12"></div>
-        </div>
-        <!--end test segment-->
+        <section id="noPlay" class="row text-center">
+            <h3>Oh no! Your screen is too small to play Guessatronic. Please rotate your device or enlarge your browser.</h3>
+        </section>
     </div>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
