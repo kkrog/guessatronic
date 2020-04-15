@@ -187,31 +187,46 @@
     #wrongWrap h4{
         line-height: 400%;
     }
+    #OUTER{
+        margin-left:1rem;
+    }
     #ROBOT{
-        width:375px;
+        width:275px;
     }
     #robotWrap{
-        width: 375px;
-        height: 294.5px;
+        width: 275px;
+        height: 216px;
+    }
+    #guessWrap{
+        margin-top:0;
     }
     #guessBox{
-        font-size:2.2rem;
+        font-size:1.5rem;
     }
     #guessButton{
-        margin-top:0.25rem;
-        border-radius: 0.35rem;
-        font-size:0.8rem;
+        margin-top:0.2rem;
+        border-radius: 0.275rem;
+        font-size: 0.65rem;
+        padding: 0 2px;
     }
     #timerWrap{
         margin-top:0;
         margin-bottom:0;
     }
+    #timerWrap h4{
+        font-size:.8rem;
+    }
+    #timer{
+        font-size: 1.5rem;
+        height:2.5rem;
+        line-height: 1.5;
+    }
     #barometer{
         margin-top:0;
-        height:85%;
+        height:82.5%;
     }
     #goodGuesses{
-        font-size:2.25rem;
+        font-size:1.75rem;
     }
     #saveIt{
         max-width:100px;
