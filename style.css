@@ -45,6 +45,9 @@ body{
     font-family: 'Luckiest Guy','Roboto',sans-serif;
     color: rgb(216,21,38);
     margin-top: .5rem;
+    padding:0;
+    margin-left: -2rem;
+    margin-right: 2rem;
 }
 #levelWrap button{
     margin:.5rem;
@@ -61,6 +64,13 @@ body{
 #levelWrap button:hover{
     background-color: rgb(249,231,54);
 }
+#levelWrap button:focus{
+    background-color: rgb(249,231,54);
+    font-size: 1.1rem;
+}
+/*#levelWrap button:active{
+    background-color: rgb(249,231,54);
+}*/
 #controlWrap button{
     margin: 1rem;
     border-radius: .5rem;
@@ -278,6 +288,7 @@ body{
 }
 button:focus {
     outline: none;
+    box-shadow: none!important;
 }
 
 /*Extra Small devices, portrait phones etc*/

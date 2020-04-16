@@ -21,12 +21,14 @@
         </div>
         <div id="levelWrap" class="row d-flex flex-nowrap align-items-center justify-content-center">
             <h4 class="col-4 col-lg-2">Choose level:</h4>
-            <button id="easy" class="col-2 col-xl-1">Easy</button>
-            <button id="medium"class="col-2 col-xl-1">Medium</button>
-            <button id="hard"class="col-2 col-xl-1">Hard</button>
-            <button id="extreme"class="col-2 col-xl-1">Extreme</button>
+            <div class="btn-toolbar row d-flex flex-nowrap align-items-center justify-content-start" role="toolbar" aria-label="Toolbar with Level Buttons">
+                <button id="easy" class="btn col-2 col-xl-1 lb" type="button" name="easy">Easy</button>
+                <button id="medium" class="btn col-2 col-xl-1 lb" type="button" name="medium">Medium</button>
+                <button id="hard" class="btn col-2 col-xl-1 lb" type="button" name="hard">Hard</button>
+                <button id="extreme" class="btn col-2 col-xl-1 lb" type="button" name="extreme">Extreme</button>
+            </div>
         </div>
-    <!--keep start hidden until level selected-->
+    <!--keep start hidden until level selected,meebe it need be type submit-->
         <div class="controls row">
             <div id="controlWrap" class="col-12 text-center">
                 <button id="start">PLAY GAME!</button>
