@@ -49,7 +49,7 @@ body{
     margin-left: -2rem;
     margin-right: 2rem;
 }
-#levelWrap button{
+#levelWrap .btn{
     margin:.5rem;
     border-radius: .5rem;
     font-family: 'Nanum Gothic','Roboto',sans-serif;
@@ -61,16 +61,17 @@ body{
     z-index: 4000;
     max-width: 120px;
 }
-#levelWrap button:hover{
+#levelWrap .btn:hover{
     background-color: rgb(249,231,54);
 }
-#levelWrap button:focus{
+/*#levelWrap button:focus{
+    background-color: rgb(249,231,54);
+    font-size: 1.1rem;
+}*/
+#levelWrap .btn:focus{
     background-color: rgb(249,231,54);
     font-size: 1.1rem;
 }
-/*#levelWrap button:active{
-    background-color: rgb(249,231,54);
-}*/
 #controlWrap button{
     margin: 1rem;
     border-radius: .5rem;
@@ -254,6 +255,9 @@ body{
 }
 .nul{
     color:rgba(0,0,0,0);
+}
+.spacey{
+    margin-right:.5rem;
 }
 #grassWrap{
     width:100vw;

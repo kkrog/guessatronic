@@ -21,29 +21,11 @@ const howPlay=()=>{
 };
 howPlay();
 
-//doesn't work b/c clicking start removes focus from level, aE reverts to any autofocus settings--maybe can script forced focus hold on levels
-/*const playGame=()=>{
-  const gameWrap=document.getElementById('gameWrap');
-  gameWrap.hidden=true;*/
-
-  //function getLevel(){
-    let levels=Array.from(document.getElementsByClassName('lb'));
-    console.log(levels);
-    levels.forEach(item=>{console.log(item.id)});
+  /*let levels=Array.from(document.getElementsByClassName('lb'));
+  console.log(levels);
+  levels.forEach(item=>{console.log(item.id)});*/
 
     //DERP. We finally have progress. This might be a fuctional start. GAH!!!! Can't believe I forgot about HTMLCollections != Arrays and can't take forEach....duh.
-
-   /* for(i=0;i<levels.length;i++){
-      levels[i].onclick=function(){levels[i].classList += 'active'}
-    let picked=document.querySelector('active');
-    console.log(levels.indexOf(picked))
-  }};
-  getLevel();
-
-  //}
-  //let start=document.getElementById('start');
-//}*/
-
 
 /*let letters=['h','o','u','n','d'];
 let lel=letters.length;
