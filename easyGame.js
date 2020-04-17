@@ -20,6 +20,7 @@ let populateSecretWord=()=>{
 };
 populateSecretWord();
 let wrongWrap=document.getElementById("wrongWrap");
+wrongWrap.style.visibility="hidden";
 let wrongLetters=[];
 let guess=()=>{
     let gl=document.getElementById('guessBox').value;
