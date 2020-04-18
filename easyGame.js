@@ -14,7 +14,7 @@ let populateSecretWord=()=>{
     for(i=0;i<swL;i++){
         let secretLetter=document.createElement("span");
         secretLetter.textContent="_";
-        secretLetter.setAttribute("class","ul nul spacey");
+        secretLetter.classList.add("ul","nul","spacey");
         document.getElementById("goodGuesses").appendChild(secretLetter);
     }
 };
@@ -22,6 +22,7 @@ populateSecretWord();
 let wrongWrap=document.getElementById("wrongWrap");
 wrongWrap.style.visibility="hidden";
 let wrongLetters=[];
+let wc=0;
 let guess=()=>{
     let gl=document.getElementById('guessBox').value;
     if(splitWord.includes(gl)){
@@ -29,16 +30,34 @@ let guess=()=>{
         guesses.splice(letterloc,1,gl);
         let rightLetter=document.createElement("span");
         rightLetter.textContent=gl;
-        rightLetter.setAttribute("class","ul spacey");
+        rightLetter.classList.add("ul","spacey");
         let replaceIt=document.getElementById("goodGuesses").children[letterloc];
         let replaceParent=document.getElementById("goodGuesses");
         replaceParent.replaceChild(rightLetter,replaceIt);
         playCount++;
     } else {
+        wc++;
         wrongWrap.style.visibility="visible";
         wrongLetters.push(gl);
         let wrong=document.getElementById("wrong");
         wrong.textContent+=gl;
+        let cloud=document.getElementById('wrongWrap');
+        let pauvre=document.getElementById('saveWrap');
+        if(cloud.classList.contains(`offset-${wc-1}`)){
+            cloud.classList.remove(`offset-${wc-1}`);
+            cloud.classList.add(`offset-${wc}`);
+            pauvre.classList.remove(`offset-${6-wc+1}`);
+            pauvre.classList.remove(`offset-md-${4-wc+1}`);
+            pauvre.classList.add(`offset-${6-wc}`);
+            pauvre.classList.add(`offset-md-${4-wc}`);
+        } else {
+            cloud.classList.add(`offset-${wc}`);
+            pauvre.classList.remove(`offset-6`);
+            pauvre.classList.remove(`offset-md-4`);
+            pauvre.classList.add(`offset-${6-wc}`);
+            pauvre.classList.add(`offset-md-${4-wc}`);
+        };
+        let baro=document.getElementById(barometer);
         playCount++;
         //move robot to right by changing col class, barometer percent vs total moves
     }
