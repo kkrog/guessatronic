@@ -232,8 +232,8 @@ body{
     border-radius: 2rem;
     background-image: url('./images/redsquare.png');
     background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: 0% 100%;
+    background-position-y:100%;
+    background-size: 0%;
     max-width: 100%;
     min-width: 75%;
     height: 90%;
@@ -323,14 +323,12 @@ Medium/Large devices, tiny vh*/
     #gameWrap{
         bottom:6vh;
     }
-    #wrongWrap{
-        margin-left: 1.5rem;
-    }
     #smoke{
-        max-width:100px;
+        max-width:120px;
     }
     #wrongWrap h4{
-        line-height: 400%;
+        line-height: 500%;
+        font-size:1.25rem;
     }
     #OUTER{
         margin-left:1rem;
@@ -351,8 +349,8 @@ Medium/Large devices, tiny vh*/
     #guessButton{
         margin-top:0.2rem;
         border-radius: 0.275rem;
-        font-size: 0.65rem;
-        padding: 0 2px;
+        font-size: 0.75rem;
+        padding: 0 3px;
     }
     #timerWrap{
         margin-top:0;

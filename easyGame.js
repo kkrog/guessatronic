@@ -19,10 +19,13 @@ let populateSecretWord=()=>{
     }
 };
 populateSecretWord();
+console.log(window.innerWidth);
+console.log(window.innerHeight);
 let wrongWrap=document.getElementById("wrongWrap");
 wrongWrap.style.visibility="hidden";
 let wrongLetters=[];
 let wc=0;
+let baro=document.getElementById('barometer');
 let guess=()=>{
     let gl=document.getElementById('guessBox').value;
     if(splitWord.includes(gl)){
@@ -46,22 +49,21 @@ let guess=()=>{
         if(cloud.classList.contains(`offset-${wc-1}`)){
             cloud.classList.remove(`offset-${wc-1}`);
             cloud.classList.add(`offset-${wc}`);
-            pauvre.classList.remove(`offset-${6-wc+1}`);
+            pauvre.classList.remove(`offset-${5-wc+1}`);
             pauvre.classList.remove(`offset-md-${4-wc+1}`);
-            pauvre.classList.add(`offset-${6-wc}`);
+            pauvre.classList.add(`offset-${5-wc}`);
             pauvre.classList.add(`offset-md-${4-wc}`);
         } else {
             cloud.classList.add(`offset-${wc}`);
-            pauvre.classList.remove(`offset-6`);
+            pauvre.classList.remove(`offset-5`);
             pauvre.classList.remove(`offset-md-4`);
-            pauvre.classList.add(`offset-${6-wc}`);
+            pauvre.classList.add(`offset-${5-wc}`);
             pauvre.classList.add(`offset-md-${4-wc}`);
         };
-        let baro=document.getElementById(barometer);
+        baro.style.backgroundSize=`${wc*102}%`;
+        }
         playCount++;
-        //move robot to right by changing col class, barometer percent vs total moves
-    }
-}
+};
 const guessButton=document.getElementById('guessButton');
 guessButton.onclick=guess;
 /*let letters=['h','o','u','n','d'];
