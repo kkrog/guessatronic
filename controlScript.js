@@ -1,9 +1,24 @@
 let creatures=["./images/creature1.png","./images/creature2.png","./images/creature3.png","./images/creature4.png"];
-let pickCreature=()=>{
+//let pickCreature=()=>{
   let picked=creatures[Math.floor(Math.random()*creatures.length)];
   document.getElementById('saveIt').src=picked;
-};
-pickCreature();
+//};
+//pickCreature();
+let mon=document.getElementById('muzakOn');
+let mof=document.getElementById('muzakOff');
+let zak=new Audio('./assets/music.mp3');
+const playMusic=()=>{
+  zak.play().loop;
+  mon.style.display='none';
+  mof.style.display='block';
+}
+const noMusic=()=>{
+  zak.pause();
+  mon.style.display='block';
+  mof.style.display='none';
+}
+mon.onclick=playMusic;
+mof.onclick=noMusic;
 
 const howPlay=()=>{
   let instructions=document.getElementById('howToButton');
@@ -20,6 +35,7 @@ const howPlay=()=>{
   }
 };
 howPlay();
+const start=document.getElementById("start");
 
   /*let levels=Array.from(document.getElementsByClassName('lb'));
   console.log(levels);
@@ -53,4 +69,7 @@ while(playcount<letters.length){guess()};*/
   alterations necessary for scoring and recording words with repeating letters
 */
 
+/* AHA
 
+use dom manip to toggle play class onto level buttons,
+then string of if else classList.contains for the click event for the start button*/

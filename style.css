@@ -36,6 +36,39 @@ body{
     padding: 1rem;
     border-radius: 1.25rem;
     margin: 1rem 0px;
+    z-index: 8000;
+}
+#muzakWrap{
+    max-width:3rem;
+    max-height:3rem;
+    border-radius: 50%;
+    background-color: rgb(249,231,54);
+    border: .25rem solid #24a105;
+    padding:0;
+    margin-top: 2rem;
+    margin-right: .5rem;
+    z-index: 8001;
+}
+#muzakOn{
+    width: 2rem;
+    height: 2rem;
+    padding:0.25rem;
+    z-index: 8002;
+}
+#muzakOn:hover{
+    cursor: pointer;
+    fill:#24a105;
+}
+#muzakOff{
+    width: 2rem;
+    height:2rem;
+    padding:0.25rem;
+    display:none;
+    z-index:8003
+}
+#muzakOff{
+    cursor: pointer;
+    fill:rgb(216,21,38);
 }
 #levelWrap{
     margin: 0 2rem;
@@ -120,6 +153,24 @@ body{
     font-size: 1.25rem;
     color: #24a105;
 }
+#gameOver{
+    display:none;
+}
+.gameFin{
+    border:.25rem solid rgb(216,21,38);
+    background-color: rgb(249,231,54);
+    font-family: 'Nanum Gothic','Roboto',sans-serif;
+    border-radius:1rem;
+    z-index: 7000;
+}
+#gameOver h3{
+    padding-top:.5rem;
+}
+#gameOver h3,#gameOver span{
+    color: rgb(216,21,38);
+    font-family: 'Luckiest Guy','Roboto',sans-serif;
+    z-index: inherit;
+}
 /*game layer*/
 #gameWrap{
     width:100vw;
@@ -178,6 +229,8 @@ body{
     height:100%;
     width:85%;
     margin-left:-15%;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 #guessWrap{
     grid-area:guessWrap;
@@ -311,6 +364,12 @@ button:focus {
         display:none !important;
     }
     .controls{
+        display:none;
+    }
+    #muzakWrap{
+        display:none;
+    }
+    #muzakOn{
         display:none;
     }
 }

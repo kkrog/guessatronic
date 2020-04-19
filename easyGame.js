@@ -24,8 +24,14 @@ console.log(window.innerHeight);
 let wrongWrap=document.getElementById("wrongWrap");
 wrongWrap.style.visibility="hidden";
 let wrongLetters=[];
+//wc is wrong guess count
 let wc=0;
+//mp is max plays
+let mp=2*swL;
+let keepPlaying=true;
+let gameOver=false;
 let baro=document.getElementById('barometer');
+let pauvre=document.getElementById('saveWrap');
 let guess=()=>{
     let gl=document.getElementById('guessBox').value;
     if(splitWord.includes(gl)){
@@ -37,7 +43,7 @@ let guess=()=>{
         let replaceIt=document.getElementById("goodGuesses").children[letterloc];
         let replaceParent=document.getElementById("goodGuesses");
         replaceParent.replaceChild(rightLetter,replaceIt);
-        playCount++;
+        //play good guess sound
     } else {
         wc++;
         wrongWrap.style.visibility="visible";
@@ -45,7 +51,6 @@ let guess=()=>{
         let wrong=document.getElementById("wrong");
         wrong.textContent+=gl;
         let cloud=document.getElementById('wrongWrap');
-        let pauvre=document.getElementById('saveWrap');
         if(cloud.classList.contains(`offset-${wc-1}`)){
             cloud.classList.remove(`offset-${wc-1}`);
             cloud.classList.add(`offset-${wc}`);
@@ -61,11 +66,28 @@ let guess=()=>{
             pauvre.classList.add(`offset-md-${4-wc}`);
         };
         baro.style.backgroundSize=`${wc*102}%`;
+        //play robot advance sound
+        //if 1 move left, play warning sound
         }
-        playCount++;
+    playCount++;
 };
 const guessButton=document.getElementById('guessButton');
 guessButton.onclick=guess;
+
+if(gameOver==true){
+    document.getElementById("cage").style.backgroundImage=`url(${picked})`;
+    document.getElementById("gameOver").style.display="block";
+    start.textContent="Replay";
+    let replay=()=>{
+        location.reload();
+    };
+    start.addEventListener('click',replay,{once:true});
+    document.getElementById('showWord').textContent=getWord;
+    pauvre.style.visibility="hidden";
+    //play gameOver sounds
+};
+
+
 /*let letters=['h','o','u','n','d'];
 let lel=letters.length;
 let guesses=new Array(lel);
