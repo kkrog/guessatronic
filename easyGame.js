@@ -4,7 +4,8 @@ document.getElementById("timerWrap").style.visibility="hidden";
 document.getElementById("timer").textContent="∞";
 */
 const easyList=["hall","page","raw","rib","city","draw","list","wolf","wife","raid","take","live","roof","save","make","mean","host","like","pray","chip","lay","acid","glow","art","snub","lack","boat","fork","cane","care","sigh","car","rare","map","sale","bat","bond","goal","mass","hurl","hill","wage","bait","rage","goat","land","pit","unit","ward","mind","burn","weak","van","rush","bang","axis","cast","file","find","last","vain","band","wall","tie","beg","turn","coma","load","fish","cute","rock","stay","bind","meat","gem","lace","riot","pole","eaux","feed","lung","good","fade","pen","cry","time","wash","toll","dark","wood","way","heel","law","pat","red","wake","nap","cell","moon","aid","arch","just","win","tip","soil","view","soak","flu","veil","soul","fax","pipe","nut","dive","fool","game","stem","jet","pig","rest","tape","silk","lid","hide","debt","job","mine","bank","mile","tidy","cow","ally","poll","slot","tree","bean","sail","brag","clay","desk","lazy","loan","poem","free","pest","era","tone","neck","stab","disk","fail","maze","pot","shop","hand","lead","log","slap","plan","tap","poor","main","act","wing","jail","race","joke","tear","lift","lie","loop","dump","top","hip","halt","belt","wave","deny","hurt","seed","heat","urge","age","loud","man","step","lean","lost","part","word","pawn","pull","mill","heir","navy","coal","date","fat","blue","set","peak","code","die","get","wind","node","pour","deer","shy","sin","nun","size"];
-let getWord=easyList[Math.floor(Math.random()*easyList.length)];
+//let getWord=easyList[Math.floor(Math.random()*easyList.length)];
+let getWord="assets";
 let splitWord=getWord.split("");
 console.log(splitWord);
 let swL=splitWord.length;
@@ -38,15 +39,17 @@ let guess=()=>{
     if(splitWord.includes(gl)){
         const ggs=new Audio('./assets/goodGuessSound.mp3');
         ggs.play();
-        let letterloc=splitWord.indexOf(gl);
-        guesses.splice(letterloc,1,gl);
-        let rightLetter=document.createElement("span");
-        rightLetter.textContent=gl;
-        rightLetter.classList.add("ul","spacey");
-        let replaceIt=document.getElementById("goodGuesses").children[letterloc];
-        let replaceParent=document.getElementById("goodGuesses");
-        replaceParent.replaceChild(rightLetter,replaceIt);
-        //play good guess sound
+        for(c=0;c<splitWord.length;c++){
+            if(splitWord[c]===gl){
+                guesses.splice(c,1,gl);
+                let rightLetter=document.createElement("span");
+                rightLetter.textContent=gl;
+                rightLetter.classList.add("ul","spacey");
+                let replaceIt=document.getElementById("goodGuesses").children[c];
+                let replaceParent=document.getElementById("goodGuesses");
+                replaceParent.replaceChild(rightLetter,replaceIt);
+            }
+        };
     } else {
         const bgs1=new Audio('./assets/badGuessSound.mp3');
         bgs1.play();
@@ -71,7 +74,6 @@ let guess=()=>{
             pauvre.classList.add(`offset-md-${4-wc}`);
         };
         baro.style.backgroundSize=`${wc*102}%`;
-        //play robot advance sound
         //if 1 move left, play warning sound
         }
     document.getElementById('guessBox').value="";
