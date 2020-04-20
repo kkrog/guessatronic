@@ -43,7 +43,7 @@ body{
     max-height:3rem;
     border-radius: 50%;
     background-color: rgb(249,231,54);
-    border: .25rem solid #24a105;
+    border: .2rem solid #24a105;
     padding:0;
     margin-top: 2rem;
     margin-right: .5rem;
@@ -367,7 +367,7 @@ button:focus {
         display:none;
     }
     #muzakWrap{
-        display:none;
+        display:none!important;
     }
     #muzakOn{
         display:none;
@@ -447,11 +447,8 @@ Medium/Large devices, tiny vh*/
 /*Medium devices, big phone landscape, tablets etc
 Large devices, tiny vh*/
 @media only screen and (min-width:768px) and (max-width:991.98px) and (min-height:585px),(min-width:992px) and (min-height:615px) and (max-height:728.98px){
-    #smoke{
-        max-width:120px;
-    }
     #wrongWrap h4{
-        line-height: 460%;
+        line-height: 500%;
     }
     #ROBOT{
         width:375px;

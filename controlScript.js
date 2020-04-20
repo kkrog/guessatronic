@@ -6,7 +6,7 @@ let creatures=["./images/creature1.png","./images/creature2.png","./images/creat
 //pickCreature();
 let mon=document.getElementById('muzakOn');
 let mof=document.getElementById('muzakOff');
-let zak=new Audio('./assets/music.mp3');
+let zak=new Audio('./assets/music2.mp3');
 const playMusic=()=>{
   zak.play().loop;
   mon.style.display='none';
@@ -36,7 +36,9 @@ const howPlay=()=>{
 };
 howPlay();
 const start=document.getElementById("start");
-
+let ss=new Audio('./assets/startSound.mp3');
+let ssp=()=>{ss.play()};
+start.onclick=ssp;
   /*let levels=Array.from(document.getElementsByClassName('lb'));
   console.log(levels);
   levels.forEach(item=>{console.log(item.id)});*/

@@ -28,13 +28,16 @@ let wrongLetters=[];
 let wc=0;
 //mp is max plays
 let mp=2*swL;
-let keepPlaying=true;
+let win=false;
 let gameOver=false;
+let gb=document.getElementById('guessBox');
 let baro=document.getElementById('barometer');
 let pauvre=document.getElementById('saveWrap');
 let guess=()=>{
-    let gl=document.getElementById('guessBox').value;
+    let gl=gb.value;
     if(splitWord.includes(gl)){
+        const ggs=new Audio('./assets/goodGuessSound.mp3');
+        ggs.play();
         let letterloc=splitWord.indexOf(gl);
         guesses.splice(letterloc,1,gl);
         let rightLetter=document.createElement("span");
@@ -45,6 +48,8 @@ let guess=()=>{
         replaceParent.replaceChild(rightLetter,replaceIt);
         //play good guess sound
     } else {
+        const bgs1=new Audio('./assets/badGuessSound.mp3');
+        bgs1.play();
         wc++;
         wrongWrap.style.visibility="visible";
         wrongLetters.push(gl);
@@ -69,21 +74,39 @@ let guess=()=>{
         //play robot advance sound
         //if 1 move left, play warning sound
         }
+    document.getElementById('guessBox').value="";
+    gb.focus;
     playCount++;
 };
 const guessButton=document.getElementById('guessButton');
 guessButton.onclick=guess;
+gb.addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) {
+        guessButton.click();
+    }});
 
 if(gameOver==true){
-    document.getElementById("cage").style.backgroundImage=`url(${picked})`;
-    document.getElementById("gameOver").style.display="block";
+    if(document.getElementById('muzakOff').style.display==='block'){
+        noMusic();
+    };
+    if(win==false){
+        document.getElementById("cage").style.backgroundImage=`url(${picked})`;
+        document.getElementById("gameOver").style.display="block";
+        document.getElementById('showWord').textContent=getWord;
+        pauvre.style.visibility="hidden";
+        let ls=new Audio('./assets/loseSound.mp3');
+        ls.play();
+    } else if(win==true){
+        let ws=new Audio('./assets/winSound.mp3');
+        ws.play();
+    };
     start.textContent="Replay";
     let replay=()=>{
         location.reload();
+        let rs=new Audio('./assets/replaySound.mp3');
+        rs.play();
     };
     start.addEventListener('click',replay,{once:true});
-    document.getElementById('showWord').textContent=getWord;
-    pauvre.style.visibility="hidden";
     //play gameOver sounds
 };
 

@@ -49,4 +49,5 @@ Hard Level: words 4 to 6 letters, 1 minute timer; wrong guesses 3/4 of word leng
 Extreme Level: words 6-8 letters, 30 second timer; wrong guesses half of word length
 
 Music and sound effects obtained from https://www.zapsplat.com.
+Certain sound effects edited using NCH MixPad.
 All illustrations original work of Ren Krog.
