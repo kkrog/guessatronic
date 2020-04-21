@@ -35,6 +35,7 @@
         <div class="controls row">
             <div id="controlWrap" class="col-12 text-center">
                 <button id="start">PLAY GAME!</button>
+                <button id="replay">REPLAY!</button>
                 <button id="howToButton">How to Play</button>
             </div>
         </div>
@@ -46,9 +47,13 @@
         </div>
     <!--gameOver section-->
         <div id="gameOver" class="row text-center">
-            <div class="gameFin col-4 offset-4">
+            <div id="gameFin" class="col-4 offset-4">
                 <h3>GAME OVER!</h3>
                 <p>Guessatronic won!<br>The correct word was <span id="showWord"></span></p>
+            </div>
+            <div id="gameWin" class="col-4 offset-4">
+                <h3>CONGRATS!</h3>
+                <p>You defeated GUESSATRONIC.</p>
             </div>
         </div>
     <!--gamePlay section-->

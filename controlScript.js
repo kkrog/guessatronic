@@ -36,9 +36,10 @@ const howPlay=()=>{
 };
 howPlay();
 const start=document.getElementById("start");
+const replayb=document.getElementById("replay");
 let ss=new Audio('./assets/startSound.mp3');
 let ssp=()=>{ss.play()};
-start.onclick=ssp;
+start.addEventListener("click",ssp,{once:true});
   /*let levels=Array.from(document.getElementsByClassName('lb'));
   console.log(levels);
   levels.forEach(item=>{console.log(item.id)});*/

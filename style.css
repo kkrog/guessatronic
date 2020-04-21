@@ -129,6 +129,16 @@ body{
 #start:hover{
     font-size:1.55rem;
 }
+#replay{
+    display:none;
+    color: rgb(216,21,38);
+    border-color: rgb(216,21,38);
+    z-index:5003;
+    transition:0.05s;
+}
+#replay:hover{
+    font-size:1.55rem;
+}
 #howToButton{
     color: #24a105;
     border-color: #24a105;
@@ -156,12 +166,21 @@ body{
 #gameOver{
     display:none;
 }
-.gameFin{
+#gameFin{
+    display:none;
     border:.25rem solid rgb(216,21,38);
     background-color: rgb(249,231,54);
     font-family: 'Nanum Gothic','Roboto',sans-serif;
     border-radius:1rem;
-    z-index: 7000;
+    z-index: 10000;
+}
+#gameWin{
+    display:none;
+    border:.25rem solid rgb(216,21,38);
+    background-color: rgb(249,231,54);
+    font-family: 'Nanum Gothic','Roboto',sans-serif;
+    border-radius:1rem;
+    z-index: 10001;
 }
 #gameOver h3{
     padding-top:.5rem;

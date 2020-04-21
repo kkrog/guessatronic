@@ -37,6 +37,7 @@ let baro=document.getElementById('barometer');
 let pauvre=document.getElementById('saveWrap');
 let guess=()=>{
     let gl=gb.value;
+//conditionals are broken - maybe in wrong order - losing broken but not always?
     if((guesses.includes(gl))||(wrongLetters.includes(gl))){
         let bob=document.createElement("div");
         bob.textContent="Letter already used. Please guess a new letter.";
@@ -58,7 +59,7 @@ let guess=()=>{
         $('#guessWrap').alert('show');
     } else if(splitWord.includes(gl)){
         gc++;
-        if(((gc+wc)<=mp)&&(splitWord===guesses)){
+        if(((gc+wc)<=mp)&&(JSON.stringify(splitWord)===JSON.stringify(guesses))){
             gameOver=true;
             win=true;
         } else{
@@ -78,7 +79,6 @@ let guess=()=>{
         };
     } else {
         wc++;
-        //change smoke's font-size if wrong length >5. screw it. we just chnage it for everything
         wrongWrap.style.visibility="visible";
         wrongLetters.push(gl);
         let wrong=document.getElementById("wrong");
@@ -121,32 +121,41 @@ let guess=()=>{
         if(document.getElementById('muzakOff').style.display==='block'){
             noMusic();
         };
+        document.getElementById('gameOver').style.display="block";
+        document.getElementById('guessButton').style.display="none";
         document.getElementById("levelWrap").style.height="0px";
         document.getElementById("levelWrap").style.visibility="hidden";
         if(win==false){
             document.getElementById("cage").style.backgroundImage=`url(${picked})`;
-            document.getElementById("gameOver").style.display="block";
+            document.getElementById("gameFin").style.display="block";
             document.getElementById('showWord').textContent=getWord;
             pauvre.style.visibility="hidden";
             let ls=new Audio('./assets/loseSound.mp3');
             ls.play();
         } else if(win==true){
+            document.getElementById("gameWin").style.display="block";
             let ws=new Audio('./assets/winSound.mp3');
             ws.play();
         };
-        start.textContent="Replay";
+        start.style.display="none";
+        replayb.style.display="inline-block";
         let replay=()=>{
             let rs=new Audio('./assets/replaySound.mp3');
             rs.play();
-            location.reload();
         };
-        start.addEventListener('click',replay,{once:true});
+        replayb.addEventListener('mousedown',replay,{once:true});
+    //OK so we can get the replay button to either say Rebooting or to Reload the page...how tf can we make it do both?!!? I feel like promises are useful here, but the audio.play() promise doesn't seem to work here. Or, as I suspect, I just don't understand promises well enough to use them. GAH.
+        /*let redo=()=>{
+            let bobby=location.reload();
+            setTimeout(bobby,30000);
+        };
+        replayb.addEventListener('mouseup',redo,{once:true});*/
     };
 };
 const guessButton=document.getElementById('guessButton');
 guessButton.onclick=guess;
 gb.addEventListener("keyup", function(event) {
-    if (event.keyCode === 13) {
+    if ((event.keyCode === 13)&&(gameOver===false)) {
         guessButton.click();
     }});
 
