@@ -18,7 +18,7 @@ let populateSecretWord=()=>{
     }
 };
 populateSecretWord();
-/*may need to redo movement based on percentage of vw and breakpoints:
+/*may need to redo movement based on percentage of vw and breakpoints. if so:
 console.log(window.innerWidth);
 console.log(window.innerHeight);*/
 let wrongWrap=document.getElementById("wrongWrap");
@@ -37,7 +37,26 @@ let baro=document.getElementById('barometer');
 let pauvre=document.getElementById('saveWrap');
 let guess=()=>{
     let gl=gb.value;
-    if(splitWord.includes(gl)){
+    if((guesses.includes(gl))||(wrongLetters.includes(gl))){
+        let bob=document.createElement("div");
+        bob.textContent="Letter already used. Please guess a new letter.";
+        bob.setAttribute('role','alert')
+        bob.classList.add("alert","alert-info","alert-dismissible","fade","show");
+        let gio=document.createElement('button');
+        gio.setAttribute('type','button');
+        gio.setAttribute('data-dismiss','alert');
+        gio.setAttribute('aria-label','close');
+        gio.id="noReuseClose1";
+        gio.classList.add('close');
+        let exy=document.createElement('span');
+        exy.textContent='x';
+        exy.id='noReuseClose2';
+        exy.setAttribute('aria-hidden','true');
+        gio.append(exy);
+        bob.append(gio);
+        document.getElementById('guessWrap').append(bob);
+        $('#guessWrap').alert('show');
+    } else if(splitWord.includes(gl)){
         gc++;
         if(((gc+wc)<=mp)&&(splitWord===guesses)){
             gameOver=true;
@@ -59,10 +78,12 @@ let guess=()=>{
         };
     } else {
         wc++;
+        //change smoke's font-size if wrong length >5. screw it. we just chnage it for everything
         wrongWrap.style.visibility="visible";
         wrongLetters.push(gl);
         let wrong=document.getElementById("wrong");
         wrong.textContent+=gl;
+        //readjust barometer method so that first guesses are better reped. OOH scheisse. need to move it out of wrong guesses because should include right guesses too. barometer vs movement counts...
         baro.style.backgroundSize=`${wc*(508/mp)}%`;
         if((gc+wc)===mp){
             gameOver=true;
