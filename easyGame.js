@@ -39,10 +39,7 @@ let pauvre=document.getElementById('saveWrap');
 let guess=()=>{
     let gl=gb.value;
 //conditionals are broken - maybe in wrong order - losing broken but not always?
-    if(((gc+wc)<=mp)&&(JSON.stringify(splitWord)===JSON.stringify(guesses))){
-        gameOver=true;
-        win=true;
-    } else if((guesses.includes(gl))||(wrongLetters.includes(gl))){
+    if((guesses.includes(gl))||(wrongLetters.includes(gl))){
         let bob=document.createElement("div");
         bob.textContent="Letter already used. Please guess a new letter.";
         bob.setAttribute('role','alert')
@@ -63,8 +60,10 @@ let guess=()=>{
         $('#guessWrap').alert('show');
     } else if(splitWord.includes(gl)){
         gc++;
-        const ggs=new Audio('./assets/goodGuessSound.mp3');
-        ggs.play();
+        if(swL-gc>0){
+            const ggs=new Audio('./assets/goodGuessSound.mp3');
+            ggs.play();
+        };
         for(c=0;c<splitWord.length;c++){
             if(splitWord[c]===gl){
                 guesses.splice(c,1,gl);
@@ -73,10 +72,12 @@ let guess=()=>{
                 rightLetter.classList.add("ul","spacey");
                 let replaceIt=document.getElementById("goodGuesses").children[c];
                 let replaceParent=document.getElementById("goodGuesses");
-                replaceParent.replaceChild(rightLetter,replaceIt);
-                
+                replaceParent.replaceChild(rightLetter,replaceIt);  
             }
         };
+        if(((gc+wc)<=mp)&&(JSON.stringify(splitWord)===JSON.stringify(guesses))){
+            gameOver=true;
+            win=true;}
     } else {
         wc++;
         wrongWrap.style.visibility="visible";
@@ -156,7 +157,11 @@ gb.addEventListener("keyup", function(event) {
     if ((event.keyCode === 13)&&(gameOver===false)) {
         guessButton.click();
     }});
-
+let sp=()=>{
+    let secretMessage=new Audio(`./assets/secretSound${(Math.floor(Math.random()*2))+1}.mp3`);
+    secretMessage.play()};
+let secretButton=document.getElementById("secret");
+secretButton.onclick=sp;
 
 /*let letters=['h','o','u','n','d'];
 let lel=letters.length;
