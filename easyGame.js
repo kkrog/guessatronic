@@ -6,6 +6,7 @@ document.getElementById("timer").textContent="∞";
 const easyList=["hall","page","raw","rib","city","draw","list","wolf","wife","raid","take","live","roof","save","make","mean","host","like","pray","chip","lay","acid","glow","art","snub","lack","boat","fork","cane","care","sigh","car","rare","map","sale","bat","bond","goal","mass","hurl","hill","wage","bait","rage","goat","land","pit","unit","ward","mind","burn","weak","van","rush","bang","axis","cast","file","find","last","vain","band","wall","tie","beg","turn","coma","load","fish","cute","rock","stay","bind","meat","gem","lace","riot","pole","eaux","feed","lung","good","fade","pen","cry","time","wash","toll","dark","wood","way","heel","law","pat","red","wake","nap","cell","moon","aid","arch","just","win","tip","soil","view","soak","flu","veil","soul","fax","pipe","nut","dive","fool","game","stem","jet","pig","rest","tape","silk","lid","hide","debt","job","mine","bank","mile","tidy","cow","ally","poll","slot","tree","bean","sail","brag","clay","desk","lazy","loan","poem","free","pest","era","tone","neck","stab","disk","fail","maze","pot","shop","hand","lead","log","slap","plan","tap","poor","main","act","wing","jail","race","joke","tear","lift","lie","loop","dump","top","hip","halt","belt","wave","deny","hurt","seed","heat","urge","age","loud","man","step","lean","lost","part","word","pawn","pull","mill","heir","navy","coal","date","fat","blue","set","peak","code","die","get","wind","node","pour","deer","shy","sin","nun","size"];
 let getWord=easyList[Math.floor(Math.random()*easyList.length)];
 let splitWord=getWord.split("");
+//for debugging gameplay - delete line 10 when everything works
 console.log(splitWord);
 let swL=splitWord.length;
 let guesses=new Array(swL);
@@ -30,15 +31,17 @@ let wc=0;
 let mp=2*swL;
 //gc is good guess count
 let gc=0;
+//ga is good array
+let ga=[];
 let win=false;
 let gameOver=false;
 let gb=document.getElementById('guessBox');
 let baro=document.getElementById('barometer');
 let pauvre=document.getElementById('saveWrap');
 
+//Bug Note - If finish word correctly after reaching Warning stage, no WIN...BUT not always!
 let guess=()=>{
     let gl=gb.value;
-//conditionals are broken - maybe in wrong order - losing broken but not always?
     if((guesses.includes(gl))||(wrongLetters.includes(gl))){
         let bob=document.createElement("div");
         bob.textContent="Letter already used. Please guess a new letter.";
@@ -60,12 +63,14 @@ let guess=()=>{
         $('#guessWrap').alert('show');
     } else if(splitWord.includes(gl)){
         gc++;
-        if(swL-gc>0){
+//audio still breaks if double letter last correct guess
+        if(swL-ga.length>1){
             const ggs=new Audio('./assets/goodGuessSound.mp3');
             ggs.play();
         };
         for(c=0;c<splitWord.length;c++){
             if(splitWord[c]===gl){
+                ga.push(gl);
                 guesses.splice(c,1,gl);
                 let rightLetter=document.createElement("span");
                 rightLetter.textContent=gl;
@@ -73,12 +78,14 @@ let guess=()=>{
                 let replaceIt=document.getElementById("goodGuesses").children[c];
                 let replaceParent=document.getElementById("goodGuesses");
                 replaceParent.replaceChild(rightLetter,replaceIt);  
+                console.log(ga);
             }
         };
         if(((gc+wc)<=mp)&&(JSON.stringify(splitWord)===JSON.stringify(guesses))){
             gameOver=true;
             win=true;}
     } else {
+    //Revisit max plays vs wrong plays & robot movements - not always getting to the creature
         wc++;
         wrongWrap.style.visibility="visible";
         wrongLetters.push(gl);
