@@ -35,10 +35,14 @@ let gameOver=false;
 let gb=document.getElementById('guessBox');
 let baro=document.getElementById('barometer');
 let pauvre=document.getElementById('saveWrap');
+
 let guess=()=>{
     let gl=gb.value;
 //conditionals are broken - maybe in wrong order - losing broken but not always?
-    if((guesses.includes(gl))||(wrongLetters.includes(gl))){
+    if(((gc+wc)<=mp)&&(JSON.stringify(splitWord)===JSON.stringify(guesses))){
+        gameOver=true;
+        win=true;
+    } else if((guesses.includes(gl))||(wrongLetters.includes(gl))){
         let bob=document.createElement("div");
         bob.textContent="Letter already used. Please guess a new letter.";
         bob.setAttribute('role','alert')
@@ -59,22 +63,18 @@ let guess=()=>{
         $('#guessWrap').alert('show');
     } else if(splitWord.includes(gl)){
         gc++;
-        if(((gc+wc)<=mp)&&(JSON.stringify(splitWord)===JSON.stringify(guesses))){
-            gameOver=true;
-            win=true;
-        } else{
-            const ggs=new Audio('./assets/goodGuessSound.mp3');
-            ggs.play();
-            for(c=0;c<splitWord.length;c++){
-                if(splitWord[c]===gl){
-                    guesses.splice(c,1,gl);
-                    let rightLetter=document.createElement("span");
-                    rightLetter.textContent=gl;
-                    rightLetter.classList.add("ul","spacey");
-                    let replaceIt=document.getElementById("goodGuesses").children[c];
-                    let replaceParent=document.getElementById("goodGuesses");
-                    replaceParent.replaceChild(rightLetter,replaceIt);
-                }
+        const ggs=new Audio('./assets/goodGuessSound.mp3');
+        ggs.play();
+        for(c=0;c<splitWord.length;c++){
+            if(splitWord[c]===gl){
+                guesses.splice(c,1,gl);
+                let rightLetter=document.createElement("span");
+                rightLetter.textContent=gl;
+                rightLetter.classList.add("ul","spacey");
+                let replaceIt=document.getElementById("goodGuesses").children[c];
+                let replaceParent=document.getElementById("goodGuesses");
+                replaceParent.replaceChild(rightLetter,replaceIt);
+                
             }
         };
     } else {
@@ -125,14 +125,14 @@ let guess=()=>{
         document.getElementById('guessButton').style.display="none";
         document.getElementById("levelWrap").style.height="0px";
         document.getElementById("levelWrap").style.visibility="hidden";
-        if(win==false){
+        if(win===false){
             document.getElementById("cage").style.backgroundImage=`url(${picked})`;
             document.getElementById("gameFin").style.display="block";
             document.getElementById('showWord').textContent=getWord;
             pauvre.style.visibility="hidden";
             let ls=new Audio('./assets/loseSound.mp3');
             ls.play();
-        } else if(win==true){
+        } else if(win===true){
             document.getElementById("gameWin").style.display="block";
             let ws=new Audio('./assets/winSound.mp3');
             ws.play();
@@ -143,13 +143,11 @@ let guess=()=>{
             let rs=new Audio('./assets/replaySound.mp3');
             rs.play();
         };
-        replayb.addEventListener('mousedown',replay,{once:true});
-    //OK so we can get the replay button to either say Rebooting or to Reload the page...how tf can we make it do both?!!? I feel like promises are useful here, but the audio.play() promise doesn't seem to work here. Or, as I suspect, I just don't understand promises well enough to use them. GAH.
-        /*let redo=()=>{
-            let bobby=location.reload();
-            setTimeout(bobby,30000);
+        replayb.addEventListener('mouseover',replay,{once:true});
+        let redo=()=>{
+            location.reload();
         };
-        replayb.addEventListener('mouseup',redo,{once:true});*/
+        replayb.addEventListener('click',redo,{once:true});
     };
 };
 const guessButton=document.getElementById('guessButton');
