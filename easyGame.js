@@ -67,12 +67,9 @@ let guess=()=>{
         if(((gc+wc)<=mp)&&(JSON.stringify(splitWord)===JSON.stringify(guesses))){
             gameOver=true;
             win=true;
-            document.getElementById("gameWin").style.display="block";
-            let ws=new Audio('./assets/winSound.mp3');
-            ws.play();
         };
 //audio still breaks if double letter last correct guess
-        if(win==false){
+        if(win===false){
             const ggs=new Audio('./assets/goodGuessSound.mp3');
             ggs.play();
         };
@@ -90,25 +87,19 @@ let guess=()=>{
             }
         };
     } else {
-//Revisit max plays vs wrong plays & robot movements - not always getting to the creature
+    //Revisit max plays vs wrong plays & robot movements - not always getting to the creature
         wc++;
         wrongWrap.style.visibility="visible";
         wrongLetters.push(gl);
         let wrong=document.getElementById("wrong");
         wrong.textContent+=gl;
-//readjust barometer method so that first guesses are better reped. OOH scheisse. need to move it out of wrong guesses because should include right guesses too. barometer vs movement counts...nvm redoing back to original max play design based on wrong moves only
+        //readjust barometer method so that first guesses are better reped. OOH scheisse. need to move it out of wrong guesses because should include right guesses too. barometer vs movement counts...nvm redoing back to original max play design based on wrong moves only
         baro.style.backgroundSize=`${wc*(508/mp)}%`;
-        if((gc+wc)==mp){
+        if((gc+wc)===mp){
             gameOver=true;
             win=false;
-            document.getElementById("cage").style.backgroundImage=`url(${picked})`;
-            document.getElementById("gameFin").style.display="block";
-            document.getElementById('showWord').textContent=getWord;
-            pauvre.style.visibility="hidden";
-            let ls=new Audio('./assets/loseSound.mp3');
-            ls.play();
-//warning sound for last move
-        } else if((mp-wc-gc)==1){
+            //warning sound for last move
+        } else if((mp-wc-gc)===1){
             const bgs3=new Audio('./assets/lastMoveSound.mp3');
             bgs3.play();
         } else if(((mp-wc-gc)>1)&&(((mp-wc)%2)>0)){
@@ -143,9 +134,20 @@ let guess=()=>{
         };
         document.getElementById('gameOver').style.display="block";
         document.getElementById('guessButton').style.display="none";
-//maybe hide level options on game start instead of just at game end
         document.getElementById("levelWrap").style.height="0px";
         document.getElementById("levelWrap").style.visibility="hidden";
+        if(win===false){
+            document.getElementById("cage").style.backgroundImage=`url(${picked})`;
+            document.getElementById("gameFin").style.display="block";
+            document.getElementById('showWord').textContent=getWord;
+            pauvre.style.visibility="hidden";
+            let ls=new Audio('./assets/loseSound.mp3');
+            ls.play();
+        } else if(win===true){
+            document.getElementById("gameWin").style.display="block";
+            let ws=new Audio('./assets/winSound.mp3');
+            ws.play();
+        };
         start.style.display="none";
         replayb.style.display="inline-block";
         let replay=()=>{
