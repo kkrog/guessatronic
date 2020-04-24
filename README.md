@@ -43,11 +43,19 @@ Happy Coding!
 ------------------
 Game Design Notes:
 The GUESSATRONIC robot is on your screen, threatening a randomly displayed imaginary creature. The only way to save the creature is to guess the word and defeat Guessatronic. A correct letter stops the robot from moving, but an incorrect guess moves it closer. If it captures the creature, the game ends.
+
 Easy Level: all words 4 letters or less, no timer, wrong guesses same as twice letters in word;
+
 Medium Level: words up to 6 letters, no timer, wrong guesses same as letters in word;
+
 Hard Level: words 4 to 6 letters, 1 minute timer; wrong guesses 3/4 of word length;
+
 Extreme Level: words 6-8 letters, 30 second timer; wrong guesses half of word length
 
 Music and sound effects obtained from https://www.zapsplat.com.
+
 Certain sound effects edited using NCH MixPad.
+
 All illustrations original work of Ren Krog.
+
+*Tried a method of playthrough where all guesses equal to 2x word length - actually pretty hard, so reverting to original strategy.
