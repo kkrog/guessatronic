@@ -28,7 +28,7 @@ let wrongLetters=[];
 //wc is wrong guess count
 let wc=0;
 //mp is max plays
-let mp=3*swL;
+let mp=2*swL;
 //gc is good guess count
 let gc=0;
 //ga is good array
@@ -39,10 +39,9 @@ let gb=document.getElementById('guessBox');
 let baro=document.getElementById('barometer');
 let pauvre=document.getElementById('saveWrap');
 
-//Bug Note - If finish word correctly after reaching Warning stage, no WIN...BUT not always! WHY?
+//Bug Note - If finish word correctly after reaching Warning stage, no WIN...BUT not always!
 let guess=()=>{
     let gl=gb.value;
-//regexp for only alpha characters goes here!    
     if((guesses.includes(gl))||(wrongLetters.includes(gl))){
         let bob=document.createElement("div");
         bob.textContent="Letter already used. Please guess a new letter.";
@@ -64,12 +63,8 @@ let guess=()=>{
         $('#guessWrap').alert('show');
     } else if(splitWord.includes(gl)){
         gc++;
-        if(((gc+wc)<=mp)&&(JSON.stringify(splitWord)===JSON.stringify(guesses))){
-            gameOver=true;
-            win=true;
-        };
 //audio still breaks if double letter last correct guess
-        if(win===false){
+        if(swL-ga.length>1){
             const ggs=new Audio('./assets/goodGuessSound.mp3');
             ggs.play();
         };
@@ -86,6 +81,9 @@ let guess=()=>{
                 console.log(ga);
             }
         };
+        if(((gc+wc)<=mp)&&(JSON.stringify(splitWord)===JSON.stringify(guesses))){
+            gameOver=true;
+            win=true;}
     } else {
     //Revisit max plays vs wrong plays & robot movements - not always getting to the creature
         wc++;
@@ -93,12 +91,11 @@ let guess=()=>{
         wrongLetters.push(gl);
         let wrong=document.getElementById("wrong");
         wrong.textContent+=gl;
-        //readjust barometer method so that first guesses are better reped. OOH scheisse. need to move it out of wrong guesses because should include right guesses too. barometer vs movement counts...nvm redoing back to original max play design based on wrong moves only
+        //readjust barometer method so that first guesses are better reped. OOH scheisse. need to move it out of wrong guesses because should include right guesses too. barometer vs movement counts...
         baro.style.backgroundSize=`${wc*(508/mp)}%`;
         if((gc+wc)===mp){
             gameOver=true;
             win=false;
-            //warning sound for last move
         } else if((mp-wc-gc)===1){
             const bgs3=new Audio('./assets/lastMoveSound.mp3');
             bgs3.play();

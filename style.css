@@ -70,9 +70,7 @@ body{
     cursor: pointer;
     fill:rgb(216,21,38);
 }
-/*removing levels until they're functional*/
 #levelWrap{
-    display: none;
     margin: 0 2rem;
 }
 #levelWrap h4{
