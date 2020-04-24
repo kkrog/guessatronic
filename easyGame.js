@@ -42,6 +42,7 @@ let pauvre=document.getElementById('saveWrap');
 //Bug Note - If finish word correctly after reaching Warning stage, no WIN...BUT not always!
 let guess=()=>{
     let gl=gb.value;
+//add regexp for only alpha characters
     if((guesses.includes(gl))||(wrongLetters.includes(gl))){
         let bob=document.createElement("div");
         bob.textContent="Letter already used. Please guess a new letter.";
@@ -64,7 +65,7 @@ let guess=()=>{
     } else if(splitWord.includes(gl)){
         gc++;
 //audio still breaks if double letter last correct guess
-        if(swL-ga.length>1){
+        if(win==false){
             const ggs=new Audio('./assets/goodGuessSound.mp3');
             ggs.play();
         };
@@ -91,7 +92,7 @@ let guess=()=>{
         wrongLetters.push(gl);
         let wrong=document.getElementById("wrong");
         wrong.textContent+=gl;
-        //readjust barometer method so that first guesses are better reped. OOH scheisse. need to move it out of wrong guesses because should include right guesses too. barometer vs movement counts...
+    //readjust barometer method so that it works...
         baro.style.backgroundSize=`${wc*(508/mp)}%`;
         if((gc+wc)===mp){
             gameOver=true;

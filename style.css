@@ -70,7 +70,9 @@ body{
     cursor: pointer;
     fill:rgb(216,21,38);
 }
+/*hiding levels until there ARE levels*/
 #levelWrap{
+    display: none;
     margin: 0 2rem;
 }
 #levelWrap h4{
