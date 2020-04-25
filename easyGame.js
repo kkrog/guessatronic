@@ -65,7 +65,7 @@ let guess=()=>{
     } else if(splitWord.includes(gl)){
         gc++;
 //audio still breaks if double letter last correct guess
-        if(win==false){
+        if((swL-ga.length>1)&&(win==false)){
             const ggs=new Audio('./assets/goodGuessSound.mp3');
             ggs.play();
         };
@@ -82,7 +82,7 @@ let guess=()=>{
                 console.log(ga);
             }
         };
-        if(((gc+wc)<=mp)&&(JSON.stringify(splitWord)===JSON.stringify(guesses))){
+        if((wc<=mp)&&(JSON.stringify(splitWord)===JSON.stringify(guesses))){
             gameOver=true;
             win=true;}
     } else {
@@ -93,14 +93,29 @@ let guess=()=>{
         let wrong=document.getElementById("wrong");
         wrong.textContent+=gl;
     //readjust barometer method so that it works...
-        baro.style.backgroundSize=`${wc*(508/mp)}%`;
-        if((gc+wc)===mp){
+        let smallScreen=window.matchMedia("(max-width:767.98px) and (min-height:512px),(min-width:768px) and (min-height:512px) and (max-height:614.98px)");
+        //11.469x60.148
+        let mediumScreen=window.matchMedia("(min-width:768px) and (max-width:991.98px) and (min-height:585px),(min-width:992px) and (min-height:615px) and (max-height:728.98px)");
+        //18.055x86.109
+        let largeScreen=window.matchMedia("(min-width:992px) and (min-height:729px)");
+        //24.313x116.844
+        if(smallScreen.matches){
+            baro.style.backgroundSize='61px';
+            baro.style.backgroundPositionY=`${61-(wc*(61/mp))}px`
+        } else if(mediumScreen.matches){
+            baro.style.backgroundSize='87px';
+            baro.style.backgroundPositionY=`${87-(wc*(87/mp))}px`
+        } else if(largeScreen.matches){
+            baro.style.backgroundSize='117px';
+            baro.style.backgroundPositionY=`${117-(wc*(117/mp))}px`
+        };
+        if(wc==mp){
             gameOver=true;
             win=false;
-        } else if((mp-wc-gc)===1){
+        } else if((mp-wc)==1){
             const bgs3=new Audio('./assets/lastMoveSound.mp3');
             bgs3.play();
-        } else if(((mp-wc-gc)>1)&&(((mp-wc)%2)>0)){
+        } else if(((mp-wc)>1)&&(((mp-wc)%2)>0)){
             const bgs2=new Audio('./assets/badGuessStillSound.mp3');
             bgs2.play();
         }else{
