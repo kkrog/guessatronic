@@ -19,9 +19,8 @@ const noMusic=()=>{
 }
 mon.onclick=playMusic;
 mof.onclick=noMusic;
-
+let instructions=document.getElementById('howToButton');
 const howPlay=()=>{
-  let instructions=document.getElementById('howToButton');
   let c=0;
   instructions.onclick=()=>{
     c++;
@@ -37,8 +36,12 @@ const howPlay=()=>{
 howPlay();
 const start=document.getElementById("start");
 const replayb=document.getElementById("replay");
+const gameDisplay=document.getElementById("gameWrap");
 let ss=new Audio('./assets/startSound.mp3');
-let ssp=()=>{ss.play()};
+let ssp=()=>{
+  ss.play();
+  easyPlay();
+};
 start.addEventListener("click",ssp,{once:true});
   /*let levels=Array.from(document.getElementsByClassName('lb'));
   console.log(levels);
