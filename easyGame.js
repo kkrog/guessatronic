@@ -37,8 +37,15 @@ let win=false;
 let gameOver=false;
 let gb=document.getElementById('guessBox');
 let baro=document.getElementById('barometer');
+let cloud=document.getElementById('wrongWrap');
 let pauvre=document.getElementById('saveWrap');
-
+let smallScreen=window.matchMedia("(max-width:767.98px) and (min-height:512px),(min-width:768px) and (min-height:512px) and (max-height:614.98px)");
+let mediumScreen=window.matchMedia("(min-width:768px) and (max-width:991.98px) and (min-height:585px),(min-width:992px) and (min-height:615px) and (max-height:728.98px)");
+let largeScreen=window.matchMedia("(min-width:992px) and (min-height:729px)");
+//creature gets too far away on large screens
+if(largeScreen.matches){
+    pauvre.style.paddingRight="200px";
+};
 //Bug Note - If finish word correctly after reaching Warning stage, no WIN...BUT not always!
 let guess=()=>{
     let gl=gb.value;
@@ -91,14 +98,7 @@ let guess=()=>{
         wrongWrap.style.visibility="visible";
         wrongLetters.push(gl);
         let wrong=document.getElementById("wrong");
-        wrong.textContent+=gl;
-    //readjust barometer method so that it works...
-        let smallScreen=window.matchMedia("(max-width:767.98px) and (min-height:512px),(min-width:768px) and (min-height:512px) and (max-height:614.98px)");
-        //11.469x60.148
-        let mediumScreen=window.matchMedia("(min-width:768px) and (max-width:991.98px) and (min-height:585px),(min-width:992px) and (min-height:615px) and (max-height:728.98px)");
-        //18.055x86.109
-        let largeScreen=window.matchMedia("(min-width:992px) and (min-height:729px)");
-        //24.313x116.844
+        wrong.textContent+=gl;  
         if(smallScreen.matches){
             baro.style.backgroundSize='61px';
             baro.style.backgroundPositionY=`${61-(wc*(61/mp))}px`
@@ -112,16 +112,37 @@ let guess=()=>{
         if(wc==mp){
             gameOver=true;
             win=false;
-        } else if((mp-wc)==1){
+        } else if(((mp-wc)==1)&&(mp==6)){
             const bgs3=new Audio('./assets/lastMoveSound.mp3');
             bgs3.play();
-        } else if(((mp-wc)>1)&&(((mp-wc)%2)>0)){
-            const bgs2=new Audio('./assets/badGuessStillSound.mp3');
-            bgs2.play();
-        }else{
+        } else if(((mp-wc)==1)&&(mp==8)){
+            const bgs3=new Audio('./assets/lastmoveSound.mp3');
+            bgs3.play();
+            cloud.classList.remove("offset-3");
+            cloud.classList.add("offset-4");
+            pauvre.classList.remove("offset-2");
+            pauvre.classList.remove("offset-md-1");
+            pauvre.classList.add("offset-1");
+            pauvre.classList.add("offset-md-0");
+        } else if(mp==6){
             const bgs1=new Audio('./assets/badGuessSound.mp3');
             bgs1.play();
-            let cloud=document.getElementById('wrongWrap');
+            if(cloud.classList.contains(`offset-${wc-1}`)){
+                cloud.classList.remove(`offst-${wc-1}`);
+                cloud.classList.add(`offset-${wc}`);
+                pauvre.classList.remove(`offset-${4-wc+1}`);
+                pauvre.classList.add(`offset-${4-wc}`);
+            } else {
+                cloud.classList.add(`offset-${wc}`);
+                pauvre.classList.remove(`offset-4`);
+                pauvre.classList.add(`offset-${4-wc}`);
+            }
+        }; /*else if(((mp-wc)>1)&&(((mp-wc)%2)>0)){
+            const bgs2=new Audio('./assets/badGuessStillSound.mp3');
+            bgs2.play();
+            else{
+            const bgs1=new Audio('./assets/badGuessSound.mp3');
+            bgs1.play();
             let wc2=(wc/2);
             if(cloud.classList.contains(`offset-${wc2-1}`)){
                 cloud.classList.remove(`offset-${wc2-1}`);
@@ -137,7 +158,7 @@ let guess=()=>{
                 pauvre.classList.add(`offset-${5-wc2}`);
                 pauvre.classList.add(`offset-md-${4-wc2}`);
             }
-        };
+        };*/
     }
     document.getElementById('guessBox').value="";
     gb.focus;
