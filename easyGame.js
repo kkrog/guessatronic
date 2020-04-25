@@ -43,9 +43,9 @@ let smallScreen=window.matchMedia("(max-width:767.98px) and (min-height:512px),(
 let mediumScreen=window.matchMedia("(min-width:768px) and (max-width:991.98px) and (min-height:585px),(min-width:992px) and (min-height:615px) and (max-height:728.98px)");
 let largeScreen=window.matchMedia("(min-width:992px) and (min-height:729px)");
 //creature gets too far away on large screens
-if(largeScreen.matches){
+/*if(largeScreen.matches){
     pauvre.style.paddingRight="200px";
-};
+};*/
 //Bug Note - If finish word correctly after reaching Warning stage, no WIN...BUT not always!
 let guess=()=>{
     let gl=gb.value;
@@ -120,10 +120,8 @@ let guess=()=>{
             bgs3.play();
             cloud.classList.remove("offset-3");
             cloud.classList.add("offset-4");
-            pauvre.classList.remove("offset-2");
-            pauvre.classList.remove("offset-md-1");
-            pauvre.classList.add("offset-1");
-            pauvre.classList.add("offset-md-0");
+            pauvre.classList.remove("offset-1");
+            pauvre.classList.add("offset-0");
         } else if(mp==6){
             const bgs1=new Audio('./assets/badGuessSound.mp3');
             bgs1.play();
@@ -137,29 +135,25 @@ let guess=()=>{
                 pauvre.classList.remove(`offset-4`);
                 pauvre.classList.add(`offset-${4-wc}`);
             }
-        }; /*else if(((mp-wc)>1)&&(((mp-wc)%2)>0)){
-            const bgs2=new Audio('./assets/badGuessStillSound.mp3');
-            bgs2.play();
-            else{
+        } else if(((mp-wc)>1)&&(((mp-wc)%2)>0)){
             const bgs1=new Audio('./assets/badGuessSound.mp3');
             bgs1.play();
-            let wc2=(wc/2);
-            if(cloud.classList.contains(`offset-${wc2-1}`)){
-                cloud.classList.remove(`offset-${wc2-1}`);
-                cloud.classList.add(`offset-${wc2}`);
-                pauvre.classList.remove(`offset-${5-wc2+1}`);
-                pauvre.classList.remove(`offset-md-${4-wc2+1}`);
-                pauvre.classList.add(`offset-${5-wc2}`);
-                pauvre.classList.add(`offset-md-${4-wc2}`);
+            //let wc2=(wc/2);redo alt wc def to account for extra moves
+            if(cloud.classList.contains(`offset-${wc-Math.floor((2/3)*wc)}`)){
+                cloud.classList.remove(`offset-${wc-Math.floor((2/3)*wc)}`);
+                cloud.classList.add(`offset-${wc-Math.floor(wc/2)}`);
+                pauvre.classList.remove(`offset-${mp-wc-Math.floor(mp/wc)}`);
+                pauvre.classList.add(`offset-${3-Math.floor(wc/2)}`);
             } else {
-                cloud.classList.add(`offset-${wc2}`);
-                pauvre.classList.remove(`offset-5`);
-                pauvre.classList.remove(`offset-md-4`);
-                pauvre.classList.add(`offset-${5-wc2}`);
-                pauvre.classList.add(`offset-md-${4-wc2}`);
-            }
-        };*/
-    }
+                cloud.classList.add(`offset-${wc}`);
+                pauvre.classList.remove(`offset-4`);
+                pauvre.classList.add(`offset-${4-wc}`);
+            };
+        } else {
+            const bgs2=new Audio('./assets/badGuessStillSound.mp3');
+            bgs2.play();            
+        };
+    };
     document.getElementById('guessBox').value="";
     gb.focus;
     if(gameOver==true){
