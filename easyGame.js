@@ -41,7 +41,7 @@ let easyPlay=()=>{
     let baro=document.getElementById('barometer');
     let cloud=document.getElementById('wrongWrap');
     let pauvre=document.getElementById('saveWrap');
-    let smallScreen=window.matchMedia("(max-width:767.98px) and (min-height:512px),(min-width:768px) and (min-height:512px) and (max-height:614.98px)");
+    let smallScreen=window.matchMedia("(min-width:576px) and (max-width:767.98px) and (min-height:512px),(min-width:768px) and (min-height:512px) and (max-height:614.98px)");
     let mediumScreen=window.matchMedia("(min-width:768px) and (max-width:991.98px) and (min-height:585px),(min-width:992px) and (min-height:615px) and (max-height:728.98px)");
     let largeScreen=window.matchMedia("(min-width:992px) and (min-height:729px)");
     //creature gets too far away on large screens

@@ -3,7 +3,16 @@ let medPlay=()=>{
     gameDisplay.style.display="flex";
     start.style.display="none";
     instructions.style.display="none";
-    document.getElementById("timerWrap").style.visibility="hidden"; 
+    document.getElementById("timerWrap").style.visibility="hidden";
+    let gb=document.getElementById('guessBox');
+    gb.focus();
+    let outer=document.getElementById('OUTER');
+    let pauvre=document.getElementById('saveWrap');
+    let smoke=document.getElementById("smoke");
+    cloud.classList.add("justify-content-xl-end");
+    outer.classList.add("align-items-xl-end");
+    pauvre.classList.add("align-items-xl-start");
+    smoke.classList.add("ml-xl-5");
     const mediumList=["road","loose","serve","meat","flush","mill","sacred","flood","aspect","murder","news","bleed","nuance","low","share","wild","oven","duty","tiptoe","deadly","visual","win","belong","legend","tablet","feel","thank","opera","poison","assume","beef","full","shelf","social","damage","loop","panel","carrot","die","king","star","irony","ignore","method","fresh","worker","brake","volume","green","seek","late","diet","nest","cafe","jet","reward","crack","plain","disk","speed","cow","god","cute","dog","buy","upset","free","march","gravel","card","dine","tape","soar","eat","coup","front","woman","arena","employ","smash","load","oil","mood","oral","view","knot","agenda","hard","policy","home","guilt","accept","basin","tribe","value","dragon","graze","quiet","brave","twist","float","lawyer","able","fast","ghost","resort","plug","firm","decide","gift","order","tax","wake","pot","hay","depend","gutter","mark","result","inject","giant","habit","palm","Venus","voyage","rotten","boat","gas","bench","cheque","repeat","miss","west","drop","crude","warm","calm","self","velvet","ready","wound","useful","top","model","fork","punish","work","petty","pole","back","shorts","heavy","engine","stick","filter","water","middle","clean","brick","dilute","bet","branch","bus","form","hiccup","deep","refund","canvas","pipe","give","school","favour","punch","father","meal","draw","lily","weak","pepper","broken","option","ample","wood","breeze","sound","insert","wire","hole","gain","sweet","virus","facade","wonder","lion","risk","refuse","peanut","bottle","date","palace","oppose","trial","trance","cancel","world","wrong","injury","debut","ban","suntan","thanks","lift","writer","fly","fire","shine","prayer","gold","unit","bring","read","sense","slump","bolt","mole","tip","ritual","coffin","monk","ratio","age","wrist","final","queue","fraud","chop","drift","piece","mix"];
     let getWord=mediumList[Math.floor(Math.random()*mediumList.length)];
     let splitWord=getWord.split("");
@@ -29,11 +38,8 @@ let medPlay=()=>{
     let ga=[];
     let win=false;
     let gameOver=false;
-    let gb=document.getElementById('guessBox');
     let baro=document.getElementById('barometer');
-    let cloud=document.getElementById('wrongWrap');
-    let pauvre=document.getElementById('saveWrap');
-    let smallScreen=window.matchMedia("(max-width:767.98px) and (min-height:512px),(min-width:768px) and (min-height:512px) and (max-height:614.98px)");
+    let smallScreen=window.matchMedia("(min-width:576px) and (max-width:767.98px) and (min-height:512px),(min-width:768px) and (min-height:512px) and (max-height:614.98px)");
     let mediumScreen=window.matchMedia("(min-width:768px) and (max-width:991.98px) and (min-height:585px),(min-width:992px) and (min-height:615px) and (max-height:728.98px)");
     let largeScreen=window.matchMedia("(min-width:992px) and (min-height:729px)");
     let guess=()=>{
@@ -85,6 +91,11 @@ let medPlay=()=>{
             } else {
                 wc++;
                 wrongWrap.style.visibility="visible";
+                if(mp==4){
+                    wrongWrap.classList.add("offset-1");
+                    cloud.classList.remove("offset-4");
+                    cloud.classList.add("offset-3");
+                };
                 wrongLetters.push(gl);
                 let wrong=document.getElementById("wrong");
                 wrong.textContent+=gl;  
@@ -104,14 +115,14 @@ let medPlay=()=>{
                 } else if(((mp-wc)==1)&&(mp==6)){
                     const bgs3=new Audio('./assets/lastMoveSound.mp3');
                     bgs3.play();
-                } else if(((mp-wc)==1)&&(mp==8)){
+                } else if(((mp-wc)==1)&&((mp==5)||(mp==4))){
                     const bgs3=new Audio('./assets/lastmoveSound.mp3');
                     bgs3.play();
                     cloud.classList.remove("offset-3");
                     cloud.classList.add("offset-4");
                     pauvre.classList.remove("offset-1");
                     pauvre.classList.add("offset-0");
-                } else if(mp==6){
+                } else if(mp!==4){
                     const bgs1=new Audio('./assets/badGuessSound.mp3');
                     bgs1.play();
                     if(cloud.classList.contains(`offset-${wc-1}`)){
@@ -124,22 +135,8 @@ let medPlay=()=>{
                         pauvre.classList.remove(`offset-4`);
                         pauvre.classList.add(`offset-${4-wc}`);
                     }
-                } else if(((mp-wc)>1)&&(((mp-wc)%2)>0)){
-                    const bgs1=new Audio('./assets/badGuessSound.mp3');
-                    bgs1.play();
-                    if(cloud.classList.contains(`offset-${wc-Math.floor((2/3)*wc)}`)){
-                        cloud.classList.remove(`offset-${wc-Math.floor((2/3)*wc)}`);
-                        cloud.classList.add(`offset-${wc-Math.floor(wc/2)}`);
-                        pauvre.classList.remove(`offset-${mp-wc-Math.floor(mp/wc)}`);
-                        pauvre.classList.add(`offset-${3-Math.floor(wc/2)}`);
-                    } else {
-                        cloud.classList.add(`offset-${wc}`);
-                        pauvre.classList.remove(`offset-4`);
-                        pauvre.classList.add(`offset-${4-wc}`);
-                    };
                 } else {
-                    const bgs2=new Audio('./assets/badGuessStillSound.mp3');
-                    bgs2.play();            
+
                 };
             };
             document.getElementById('guessBox').value="";

@@ -40,9 +40,23 @@ const gameDisplay=document.getElementById("gameWrap");
 let ss=new Audio('./assets/startSound.mp3');
 let ssp=()=>{
   ss.play();
-  easyPlay();
+  medPlay();
 };
 start.addEventListener("click",ssp,{once:true});
+let xsmall=window.matchMedia("(max-width:575.98px),(max-height:511.98px)");
+let cloud=document.getElementById('wrongWrap');
+function xsCheck(e){
+  if(e.matches){
+    gameDisplay.style.visibility="hidden";
+    cloud.style.visibility="hidden";
+    document.getElementById('gameFin').style.visibility="hidden";
+  } else{
+    gameDisplay.style.visibility="visible";
+    cloud.style.visibility="visible";
+    document.getElementById('gameFin').style.visibility="visible";
+  }
+};
+xsmall.addListener(xsCheck);
   /*let levels=Array.from(document.getElementsByClassName('lb'));
   console.log(levels);
   levels.forEach(item=>{console.log(item.id)});*/
