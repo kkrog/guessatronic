@@ -37,10 +37,12 @@ howPlay();
 const start=document.getElementById("start");
 const replayb=document.getElementById("replay");
 const gameDisplay=document.getElementById("gameWrap");
+let gb=document.getElementById('guessBox');
 let ss=new Audio('./assets/startSound.mp3');
 let ssp=()=>{
   ss.play();
-  medPlay();
+  playHard();
+  gb.focus();
 };
 start.addEventListener("click",ssp,{once:true});
 let xsmall=window.matchMedia("(max-width:575.98px),(max-height:511.98px)");
