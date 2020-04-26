@@ -1,4 +1,5 @@
 //Hard Level: words 4 to 6 letters, 40 second timer; wrong guesses 3/4 of word length;
+//BUG - oops, forgot to fixer timer listener auto-lose action
 let playHard=()=>{
     gameDisplay.style.display="flex";
     start.style.display="none";
@@ -35,7 +36,6 @@ let playHard=()=>{
     const hardList=["road","loose","serve","meat","flush","mill","sacred","flood","aspect","murder","news","bleed","nuance","share","wild","oven","duty","tiptoe","deadly","visual","belong","legend","tablet","feel","thank","opera","poison","assume","beef","full","shelf","social","damage","loop","panel","carrot","king","star","irony","ignore","method","fresh","worker","brake","volume","green","seek","late","diet","nest","cafe","reward","crack","plain","disk","speed","cute","upset","free","march","gravel","card","dine","tape","soar","coup","front","woman","arena","employ","smash","load","mood","oral","view","knot","agenda","hard","policy","home","guilt","accept","basin","tribe","value","dragon","graze","quiet","brave","twist","float","lawyer","able","fast","ghost","resort","plug","firm","decide","gift","order","wake","depend","gutter","mark","result","inject","giant","habit","palm","Venus","voyage","rotten","boat","bench","cheque","repeat","miss","west","drop","crude","warm","calm","self","velvet","ready","wound","useful","model","fork","punish","work","petty","pole","back","shorts","heavy","engine","stick","filter","water","middle","clean","brick","dilute","branch","form","hiccup","deep","refund","canvas","pipe","give","school","favour","punch","father","meal","draw","lily","weak","pepper","broken","option","ample","wood","breeze","sound","insert","wire","hole","gain","sweet","virus","facade","wonder","lion","risk","refuse","peanut","bottle","date","palace","oppose","trial","trance","cancel","world","wrong","injury","debut","suntan","thanks","lift","writer","fire","shine","prayer","gold","unit","bring","read","sense","slump","bolt","mole","ritual","coffin","monk","ratio","wrist","final","queue","fraud","chop","drift","piece","honor","acute","draft","know","night","white","dozen","number","mill","leaf","refund","wage","power","hobby","button","ward","margin","silk","animal","lion","soar","fear","tune","repeat","rack","forbid","orbit","bell","second","rule","rocket","absorb","charge","ladder","tempt","twitch","artist","outfit","cart","narrow","acquit","barrel","visual"];
     let getWord=hardList[Math.floor(Math.random()*hardList.length)];
     let splitWord=getWord.split("");
-    console.log(splitWord);
     let swL=splitWord.length;
     let guesses=new Array(swL);
     let populateSecretWord=()=>{

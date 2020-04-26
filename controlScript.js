@@ -41,7 +41,7 @@ let gb=document.getElementById('guessBox');
 let ss=new Audio('./assets/startSound.mp3');
 let ssp=()=>{
   ss.play();
-  playHard();
+  extPlay();
   gb.focus();
 };
 start.addEventListener("click",ssp,{once:true});
