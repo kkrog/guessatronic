@@ -12,12 +12,42 @@ let extPlay=()=>{
         clearInterval(cd);
         const rn=Date.now();
         const theend=rn+seconds*1000;
-        console.log(seconds);
         dsl(seconds);
         cd=setInterval(()=>{
             secsleft=Math.round((theend-Date.now())/1000);
-            if((secsleft<0)||(gameOver==true)){
+            if(gameOver==true){
                 clearInterval(cd);
+                return;
+            }
+            if(secsleft<0){
+                clearInterval(cd);
+                if(document.getElementById('muzakOff').style.display==='block'){
+                    noMusic();
+                };
+                let notime=document.createElement('p');
+                notime.textContent="You ran out of time!";
+                document.getElementById('gameFin').append(notime);
+                document.getElementById('gameOver').style.display="block";
+                document.getElementById('guessButton').style.display="none";
+                document.getElementById("levelWrap").style.height="0px";
+                document.getElementById("levelWrap").style.visibility="hidden";
+                document.getElementById("cage").style.backgroundImage=`url(${picked})`;
+                document.getElementById("gameFin").style.display="block";
+                document.getElementById('showWord').textContent=getWord;
+                pauvre.style.visibility="hidden";
+                let ls=new Audio('./assets/loseSound.mp3');
+                ls.play();
+                start.style.display="none";
+                replayb.style.display="inline-block";
+                let replay=()=>{
+                    let rs=new Audio('./assets/replaySound.mp3');
+                    rs.play();
+                };
+                replayb.addEventListener('mouseover',replay,{once:true});
+                let redo=()=>{
+                    location.reload();
+                };
+                replayb.addEventListener('click',redo,{once:true});
                 return;
             }
             dsl(secsleft);

@@ -1,5 +1,4 @@
 //Hard Level: words 4 to 6 letters, 40 second timer; wrong guesses 3/4 of word length;
-//BUG - oops, forgot to fixer timer listener auto-lose action
 let playHard=()=>{
     gameDisplay.style.display="flex";
     start.style.display="none";
@@ -13,12 +12,42 @@ let playHard=()=>{
         clearInterval(cd);
         const rn=Date.now();
         const theend=rn+seconds*1000;
-        console.log(seconds);
         dsl(seconds);
         cd=setInterval(()=>{
             secsleft=Math.round((theend-Date.now())/1000);
-            if((secsleft<0)||(gameOver==true)){
+            if(gameOver==true){
                 clearInterval(cd);
+                return;
+            }
+            if(secsleft<0){
+                clearInterval(cd);
+                if(document.getElementById('muzakOff').style.display==='block'){
+                    noMusic();
+                };
+                let notime=document.createElement('p');
+                notime.textContent="You ran out of time!";
+                document.getElementById('gameFin').append(notime);
+                document.getElementById('gameOver').style.display="block";
+                document.getElementById('guessButton').style.display="none";
+                document.getElementById("levelWrap").style.height="0px";
+                document.getElementById("levelWrap").style.visibility="hidden";
+                document.getElementById("cage").style.backgroundImage=`url(${picked})`;
+                document.getElementById("gameFin").style.display="block";
+                document.getElementById('showWord').textContent=getWord;
+                pauvre.style.visibility="hidden";
+                let ls=new Audio('./assets/loseSound.mp3');
+                ls.play();
+                start.style.display="none";
+                replayb.style.display="inline-block";
+                let replay=()=>{
+                    let rs=new Audio('./assets/replaySound.mp3');
+                    rs.play();
+                };
+                replayb.addEventListener('mouseover',replay,{once:true});
+                let redo=()=>{
+                    location.reload();
+                };
+                replayb.addEventListener('click',redo,{once:true});
                 return;
             }
             dsl(secsleft);
@@ -67,11 +96,6 @@ let playHard=()=>{
     let smallScreen=window.matchMedia("(min-width:576px) and (max-width:767.98px) and (min-height:512px),(min-width:768px) and (min-height:512px) and (max-height:614.98px)");
     let mediumScreen=window.matchMedia("(min-width:768px) and (max-width:991.98px) and (min-height:585px),(min-width:992px) and (min-height:615px) and (max-height:728.98px)");
     let largeScreen=window.matchMedia("(min-width:992px) and (min-height:729px)");
-    //creature gets too far away on large screens
-    /*if(largeScreen.matches){
-        pauvre.style.paddingRight="200px";
-    };*/
-    //Bug Note - If finish word correctly after reaching Warning stage, no WIN...BUT not always! Not finding bug at It's Alive commit
     let guess=()=>{
         const ggs=new Audio('./assets/goodGuessSound.mp3');
         let gl=gb.value;
