@@ -50,6 +50,7 @@ let easyPlay=()=>{
     };*/
     //Bug Note - If finish word correctly after reaching Warning stage, no WIN...BUT not always! Not finding bug at It's Alive commit
     let guess=()=>{
+        const ggs=new Audio('./assets/goodGuessSound.mp3');
         let gl=gb.value;
         let alpha=/[a-z]/i;
         if(alpha.test(gl)){
@@ -74,9 +75,7 @@ let easyPlay=()=>{
                 $('#guessWrap').alert('show');
             } else if(splitWord.includes(gl)){
                 gc++;
-        //audio still breaks if double letter last correct guess
                 if((swL-ga.length>1)&&(win==false)){
-                    const ggs=new Audio('./assets/goodGuessSound.mp3');
                     ggs.play();
                 };
                 for(c=0;c<splitWord.length;c++){
@@ -172,12 +171,12 @@ let easyPlay=()=>{
                     let ls=new Audio('./assets/loseSound.mp3');
                     ls.play();
                 } else if(win===true){
+                    ggs.pause();
                     document.getElementById("gameWin").style.display="block";
                     let ws=new Audio('./assets/winSound.mp3');
                     ws.play();
                 };
                 start.style.display="none";
-        //BUG ALERT! If doubleclick howToButton after gameplay, start and replay buttons appear when howTo toggled shut 
                 replayb.style.display="inline-block";
                 let replay=()=>{
                     let rs=new Audio('./assets/replaySound.mp3');

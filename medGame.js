@@ -45,6 +45,7 @@ let medPlay=()=>{
     let mediumScreen=window.matchMedia("(min-width:768px) and (max-width:991.98px) and (min-height:585px),(min-width:992px) and (min-height:615px) and (max-height:728.98px)");
     let largeScreen=window.matchMedia("(min-width:992px) and (min-height:729px)");
     let guess=()=>{
+        const ggs=new Audio('./assets/goodGuessSound.mp3');
         let gl=gb.value;
         let alpha=/[a-z]/i;
         if(alpha.test(gl)){
@@ -69,9 +70,7 @@ let medPlay=()=>{
                 $('#guessWrap').alert('show');
             } else if(splitWord.includes(gl)){
                 gc++;
-        //audio still breaks if double letter last correct guess
                 if((swL-ga.length>1)&&(win==false)){
-                    const ggs=new Audio('./assets/goodGuessSound.mp3');
                     ggs.play();
                 };
                 for(c=0;c<splitWord.length;c++){
@@ -165,6 +164,7 @@ let medPlay=()=>{
                     let ls=new Audio('./assets/loseSound.mp3');
                     ls.play();
                 } else if(win===true){
+                    ggs.pause();
                     document.getElementById("gameWin").style.display="block";
                     let ws=new Audio('./assets/winSound.mp3');
                     ws.play();
