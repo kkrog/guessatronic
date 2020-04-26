@@ -27,7 +27,7 @@ body{
     overflow-x: hidden;
     overflow-y: hidden;
 }
-
+/*CONTROLS*/
 #gametitle{
     font-family: 'Luckiest Guy','Roboto',sans-serif;
     color: rgb(216,21,38);
@@ -70,9 +70,7 @@ body{
     cursor: pointer;
     fill:rgb(216,21,38);
 }
-/*hiding levels until there ARE levels*/
 #levelWrap{
-    display: none;
     margin: 0 2rem;
 }
 #levelWrap h4{
@@ -99,10 +97,6 @@ body{
 #levelWrap .btn:hover{
     background-color: rgb(249,231,54);
 }
-/*#levelWrap button:focus{
-    background-color: rgb(249,231,54);
-    font-size: 1.1rem;
-}*/
 #levelWrap .btn:focus{
     background-color: rgb(249,231,54);
     font-size: 1.1rem;
@@ -197,7 +191,7 @@ body{
 #gameWin h3,#gameWin span{
     color: #24a105;
 }
-/*game layer*/
+/*GAME LAYER*/
 #gameWrap{
     width:100vw;
     height:100%;
@@ -328,6 +322,7 @@ body{
     z-index: 2030;
     margin-top: .125rem;
 }
+/*guessed letters*/
 #goodGuesses{
     grid-area: guess;
     font-family: 'Nanum Gothic','Roboto',sans-serif;
@@ -348,6 +343,7 @@ body{
 .spacey{
     margin-right:.5rem;
 }
+/*the grass*/
 #grassWrap{
     width:100vw;
     bottom:0;
@@ -365,6 +361,7 @@ body{
     font-size:.75rem;
     color:#1d8005;
 }
+/*imaginary friend/weird creature*/
 #saveWrap{
     width:100%;
     height:100%;
@@ -376,6 +373,7 @@ body{
     width:100%;
     height:auto;
 }
+/*alerts & notices*/
 #noPlay{
     display:none;
 }
@@ -383,16 +381,6 @@ button:focus {
     outline: none;
     box-shadow: none!important;
 }
-/*.tooltip{
-    z-index: 10000 !important;
-    background-color: #fff;
-    color: #212529;
-    border: solid 2px #212529;
-    border-radius: .5rem;
-    max-width: 3rem;
-    word-wrap: normal;
-    opacity: 100;
-}*/
 .alert{
     position: absolute!important;
     z-index:7025!important;
@@ -403,6 +391,7 @@ button:focus {
 #noReuseClose2{
     z-index:7450;
 }
+/*MEDIA QUERIES*/
 /*Extra Small devices, portrait phones etc*/
 @media only screen and (max-width:575.98px),(max-height:512px){
 /*OH NO! Your screen is TOO SMALL for Guessatronic!*/

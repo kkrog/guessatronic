@@ -1,5 +1,7 @@
 //Extreme Level: words 6-8 letters, 20 second timer; wrong guesses half of word length
-let extPlay=()=>{
+let extremePlay=()=>{
+    document.getElementById("levelWrap").style.height="0px";
+    document.getElementById("levelWrap").style.visibility="hidden";
     gameDisplay.style.display="flex";
     start.style.display="none";
     instructions.style.display="none";
@@ -29,8 +31,6 @@ let extPlay=()=>{
                 document.getElementById('gameFin').append(notime);
                 document.getElementById('gameOver').style.display="block";
                 document.getElementById('guessButton').style.display="none";
-                document.getElementById("levelWrap").style.height="0px";
-                document.getElementById("levelWrap").style.visibility="hidden";
                 document.getElementById("cage").style.backgroundImage=`url(${picked})`;
                 document.getElementById("gameFin").style.display="block";
                 document.getElementById('showWord').textContent=getWord;
@@ -206,8 +206,6 @@ let extPlay=()=>{
                 };
                 document.getElementById('gameOver').style.display="block";
                 document.getElementById('guessButton').style.display="none";
-                document.getElementById("levelWrap").style.height="0px";
-                document.getElementById("levelWrap").style.visibility="hidden";
                 if(win===false){
                     document.getElementById("cage").style.backgroundImage=`url(${picked})`;
                     document.getElementById("gameFin").style.display="block";

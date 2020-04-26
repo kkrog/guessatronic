@@ -1,5 +1,7 @@
 //Medium Level: words up to 6 letters, no timer, wrong guesses same as letters in word;
-let medPlay=()=>{
+let mediumPlay=()=>{
+    document.getElementById("levelWrap").style.height="0px";
+    document.getElementById("levelWrap").style.visibility="hidden";
     gameDisplay.style.display="flex";
     start.style.display="none";
     instructions.style.display="none";
@@ -154,8 +156,6 @@ let medPlay=()=>{
                 };
                 document.getElementById('gameOver').style.display="block";
                 document.getElementById('guessButton').style.display="none";
-                document.getElementById("levelWrap").style.height="0px";
-                document.getElementById("levelWrap").style.visibility="hidden";
                 if(win===false){
                     document.getElementById("cage").style.backgroundImage=`url(${picked})`;
                     document.getElementById("gameFin").style.display="block";

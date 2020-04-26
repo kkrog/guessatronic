@@ -20,18 +20,15 @@
                 
             </div>
         </div>
-        <div id="levelWrap" class="row"><!--hiding levels until usable; rest of classes: d-flex flex-nowrap align-items-center justify-content-center-->
+        <div id="levelWrap" class="row d-flex flex-nowrap align-items-center justify-content-center">
             <h4 class="col-4 col-lg-2">Choose level:</h4>
-            <div class="btn-toolbar row d-flex flex-nowrap align-items-center justify-content-start btn-group-toggle" data-toggle="buttons" role="toolbar" aria-label="Toolbar with Level Buttons">
-                <label class="btn col-2 col-xl-1 lb active" name="easy">
-                    <input id="easy" type="checkbox" checked>Easy
-                </label>
+            <div class="btn-toolbar row d-flex flex-nowrap align-items-center justify-content-start" role="toolbar" aria-label="Toolbar with Level Buttons">
+                <button id="easy" class="btn col-2 col-xl-1 lb" type="button" name="easy">Easy</button>
                 <button id="medium" class="btn col-2 col-xl-1 lb" type="button" name="medium">Medium</button>
                 <button id="hard" class="btn col-2 col-xl-1 lb" type="button" name="hard">Hard</button>
                 <button id="extreme" class="btn col-2 col-xl-1 lb" type="button" name="extreme">Extreme</button>
             </div>
         </div>
-    <!--once levels exist, keep start hidden until level selected,mebbe it need be type submit-->
         <div class="controls row">
             <div id="controlWrap" class="col-12 text-center">
                 <button id="start">PLAY GAME!</button>

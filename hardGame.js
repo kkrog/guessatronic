@@ -1,5 +1,7 @@
 //Hard Level: words 4 to 6 letters, 40 second timer; wrong guesses 3/4 of word length;
-let playHard=()=>{
+let hardPlay=()=>{
+    document.getElementById("levelWrap").style.height="0px";
+    document.getElementById("levelWrap").style.visibility="hidden";
     gameDisplay.style.display="flex";
     start.style.display="none";
     instructions.style.display="none";
@@ -29,8 +31,6 @@ let playHard=()=>{
                 document.getElementById('gameFin').append(notime);
                 document.getElementById('gameOver').style.display="block";
                 document.getElementById('guessButton').style.display="none";
-                document.getElementById("levelWrap").style.height="0px";
-                document.getElementById("levelWrap").style.visibility="hidden";
                 document.getElementById("cage").style.backgroundImage=`url(${picked})`;
                 document.getElementById("gameFin").style.display="block";
                 document.getElementById('showWord').textContent=getWord;
@@ -219,8 +219,6 @@ let playHard=()=>{
                 };
                 document.getElementById('gameOver').style.display="block";
                 document.getElementById('guessButton').style.display="none";
-                document.getElementById("levelWrap").style.height="0px";
-                document.getElementById("levelWrap").style.visibility="hidden";
                 if(win===false){
                     document.getElementById("cage").style.backgroundImage=`url(${picked})`;
                     document.getElementById("gameFin").style.display="block";

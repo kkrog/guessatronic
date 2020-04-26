@@ -1,12 +1,15 @@
 //Easy Level: all words 4 letters or less, no timer, wrong guesses same as twice letters in word;
 let easyPlay=()=>{
+//hide and show the right game elements
+    document.getElementById("levelWrap").style.height="0px";
+    document.getElementById("levelWrap").style.visibility="hidden";
     gameDisplay.style.display="flex";
     start.style.display="none";
     instructions.style.display="none";
-    document.getElementById("timerWrap").style.visibility="hidden"; 
-    /*OR just show infinite time
-    document.getElementById("timer").textContent="∞";
-    */
+    document.getElementById("timerWrap").style.visibility="hidden";
+    let wrongWrap=document.getElementById("wrongWrap");
+    wrongWrap.style.visibility="hidden";
+//words!
     const easyList=["hall","page","raw","rib","city","draw","list","wolf","wife","raid","take","live","roof","save","make","mean","host","like","pray","chip","lay","acid","glow","art","snub","lack","boat","fork","cane","care","sigh","car","rare","map","sale","bat","bond","goal","mass","hurl","hill","wage","bait","rage","goat","land","pit","unit","ward","mind","burn","weak","van","rush","bang","axis","cast","file","find","last","vain","band","wall","tie","beg","turn","coma","load","fish","cute","rock","stay","bind","meat","gem","lace","riot","pole","eaux","feed","lung","good","fade","pen","cry","time","wash","toll","dark","wood","way","heel","law","pat","red","wake","nap","cell","moon","aid","arch","just","win","tip","soil","view","soak","flu","veil","soul","fax","pipe","nut","dive","fool","game","stem","jet","pig","rest","tape","silk","lid","hide","debt","job","mine","bank","mile","tidy","cow","ally","poll","slot","tree","bean","sail","brag","clay","desk","lazy","loan","poem","free","pest","era","tone","neck","stab","disk","fail","maze","pot","shop","hand","lead","log","slap","plan","tap","poor","main","act","wing","jail","race","joke","tear","lift","lie","loop","dump","top","hip","halt","belt","wave","deny","hurt","seed","heat","urge","age","loud","man","step","lean","lost","part","word","pawn","pull","mill","heir","navy","coal","date","fat","blue","set","peak","code","die","get","wind","node","pour","deer","shy","sin","nun","size"];
     let getWord=easyList[Math.floor(Math.random()*easyList.length)];
     let splitWord=getWord.split("");
@@ -21,11 +24,7 @@ let easyPlay=()=>{
         }
     };
     populateSecretWord();
-    /*may need to redo movement based on percentage of vw and breakpoints. if so:
-    console.log(window.innerWidth);
-    console.log(window.innerHeight);*/
-    let wrongWrap=document.getElementById("wrongWrap");
-    wrongWrap.style.visibility="hidden";
+//definitions!
     let wrongLetters=[];
     //wc is wrong guess count
     let wc=0;
@@ -44,11 +43,7 @@ let easyPlay=()=>{
     let smallScreen=window.matchMedia("(min-width:576px) and (max-width:767.98px) and (min-height:512px),(min-width:768px) and (min-height:512px) and (max-height:614.98px)");
     let mediumScreen=window.matchMedia("(min-width:768px) and (max-width:991.98px) and (min-height:585px),(min-width:992px) and (min-height:615px) and (max-height:728.98px)");
     let largeScreen=window.matchMedia("(min-width:992px) and (min-height:729px)");
-    //creature gets too far away on large screens
-    /*if(largeScreen.matches){
-        pauvre.style.paddingRight="200px";
-    };*/
-    //Bug Note - If finish word correctly after reaching Warning stage, no WIN...BUT not always! Not finding bug at It's Alive commit
+//meat and bones  
     let guess=()=>{
         const ggs=new Audio('./assets/goodGuessSound.mp3');
         let gl=gb.value;
@@ -161,8 +156,6 @@ let easyPlay=()=>{
                 };
                 document.getElementById('gameOver').style.display="block";
                 document.getElementById('guessButton').style.display="none";
-                document.getElementById("levelWrap").style.height="0px";
-                document.getElementById("levelWrap").style.visibility="hidden";
                 if(win===false){
                     document.getElementById("cage").style.backgroundImage=`url(${picked})`;
                     document.getElementById("gameFin").style.display="block";
@@ -202,29 +195,3 @@ let easyPlay=()=>{
     let secretButton=document.getElementById("secret");
     secretButton.onclick=sp;
 };
-
-/*let letters=['h','o','u','n','d'];
-let lel=letters.length;
-let guesses=new Array(lel);
-let wrong=[];
-let playcount=0;
-let guess=()=>{
-  let gl=prompt('Guess letter');
-  if (letters.includes(gl)){guesses.splice(letters.indexOf(gl),1,gl)
-    } else {
-      wrong.push(gl);
-      playcount++};
-  console.log(`Good guesses: ${guesses}`);
-  console.log(`Bad guesses: ${wrong}`);
-  console.log(`Wrong guesses left: ${letters.length-playcount}`)
-  if(JSON.stringify(letters)===JSON.stringify(guesses)){playcount=letters.length;console.log("You win!")};
-};
-
-while(playcount<letters.length){guess()};*/
-/*Need to add in js:
-  reward $ along with the playcount
-  word bank, word selector, word-to-letter split
-  dom-manipulation
-  result styling
-  alterations necessary for scoring and recording words with repeating letters
-*/

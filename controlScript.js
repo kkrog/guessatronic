@@ -1,9 +1,8 @@
+//display an imaginary friend
 let creatures=["./images/creature1.png","./images/creature2.png","./images/creature3.png","./images/creature4.png"];
-//let pickCreature=()=>{
-  let picked=creatures[Math.floor(Math.random()*creatures.length)];
-  document.getElementById('saveIt').src=picked;
-//};
-//pickCreature();
+let saveable=creatures[Math.floor(Math.random()*creatures.length)];
+document.getElementById('saveIt').src=saveable;
+//music controls
 let mon=document.getElementById('muzakOn');
 let mof=document.getElementById('muzakOff');
 let zak=new Audio('./assets/music2.mp3');
@@ -19,6 +18,7 @@ const noMusic=()=>{
 }
 mon.onclick=playMusic;
 mof.onclick=noMusic;
+//instructions toggle
 let instructions=document.getElementById('howToButton');
 const howPlay=()=>{
   let c=0;
@@ -39,12 +39,75 @@ const replayb=document.getElementById("replay");
 const gameDisplay=document.getElementById("gameWrap");
 let gb=document.getElementById('guessBox');
 let ss=new Audio('./assets/startSound.mp3');
+
+//levels
+let levels=Array.from(document.getElementsByClassName('lb'));
+let eL=levels[0];
+let mL=levels[1];
+let hL=levels[2];
+let xL=levels[3];
+//limit active button to find level - native tbs toggle wasn't functioning well for purpose
+let easylimit=()=>{
+    if (!eL.classList.contains("active")){
+        eL.classList.add("active");
+        mL.classList.remove("active");
+        hL.classList.remove("active");
+        xL.classList.remove("active");
+    };
+};
+eL.onclick=easylimit;
+
+let medlimit=()=>{
+    if(!mL.classList.contains("active")){
+        mL.classList.add("active");
+        eL.classList.remove("active");
+        hL.classList.remove("active");
+        xL.classList.remove("active");
+    };
+};
+mL.onclick=medlimit;
+
+let hardlimit=()=>{
+    if(!hL.classList.contains("active")){
+        hL.classList.add("active");
+        eL.classList.remove("active");
+        mL.classList.remove("active");
+        xL.classList.remove("active");
+    };
+};
+hL.onclick=hardlimit;
+
+let extlimit=()=>{
+    if(!xL.classList.contains("active")) {
+        xL.classList.add("active");
+        eL.classList.remove("active");
+        mL.classList.remove("active");
+        hL.classList.remove("active");
+    }
+};
+
+xL.onclick=extlimit;
+//Load the game and play
 let ssp=()=>{
-  ss.play();
-  playHard();
+  let picked=document.querySelector(".active").id;
+  if(picked=="easy"){
+    ss.play();
+    easyPlay();
+  } else if(picked=="medium"){
+    ss.play();
+    mediumPlay();
+  } else if(picked=="hard"){
+    ss.play();
+    hardPlay();
+  } else if(picked=="extreme"){
+    ss.play();
+    extremePlay();
+  };
   gb.focus();
 };
-start.addEventListener("click",ssp,{once:true});
+start.addEventListener("click",ssp);
+
+//change game visibility if window shrunk too small for gameplay after game started
 let xsmall=window.matchMedia("(max-width:575.98px),(max-height:511.98px)");
 let cloud=document.getElementById('wrongWrap');
 function xsCheck(e){
@@ -59,39 +122,3 @@ function xsCheck(e){
   }
 };
 xsmall.addListener(xsCheck);
-  /*let levels=Array.from(document.getElementsByClassName('lb'));
-  console.log(levels);
-  levels.forEach(item=>{console.log(item.id)});*/
-
-    //DERP. We finally have progress. This might be a fuctional start. GAH!!!! Can't believe I forgot about HTMLCollections != Arrays and can't take forEach....duh.
-
-/*let letters=['h','o','u','n','d'];
-let lel=letters.length;
-let guesses=new Array(lel);
-let wrong=[];
-let playcount=0;
-let guess=()=>{
-  let gl=prompt('Guess letter');
-  if (letters.includes(gl)){guesses.splice(letters.indexOf(gl),1,gl)
-    } else {
-      wrong.push(gl);
-      playcount++};
-  console.log(`Good guesses: ${guesses}`);
-  console.log(`Bad guesses: ${wrong}`);
-  console.log(`Wrong guesses left: ${letters.length-playcount}`)
-  if(JSON.stringify(letters)===JSON.stringify(guesses)){playcount=letters.length;console.log("You win!")};
-};
-
-while(playcount<letters.length){guess()};*/
-/*Need to add in js:
-  reward $ along with the playcount
-  word bank, word selector, word-to-letter split
-  dom-manipulation
-  result styling
-  alterations necessary for scoring and recording words with repeating letters
-*/
-
-/* AHA
-
-use dom manip to toggle play class onto level buttons,
-then string of if else classList.contains for the click event for the start button*/
