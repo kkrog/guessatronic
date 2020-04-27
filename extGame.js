@@ -207,7 +207,7 @@ let extremePlay=()=>{
                 document.getElementById('gameOver').style.display="block";
                 document.getElementById('guessButton').style.display="none";
                 if(win===false){
-                    document.getElementById("cage").style.backgroundImage=`url(${picked})`;
+                    document.getElementById("cage").style.backgroundImage=`url(${saveable})`;
                     document.getElementById("gameFin").style.display="block";
                     document.getElementById('showWord').textContent=getWord;
                     pauvre.style.visibility="hidden";
